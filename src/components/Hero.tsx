@@ -38,7 +38,9 @@ export const Hero = ({ locale }: HeroProps) => {
   const handleSecondaryClick = () => {
     const tryItSection = document.querySelector('#try-it');
     if (tryItSection) {
-      tryItSection.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -100;
+      const y = tryItSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -78,18 +80,18 @@ export const Hero = ({ locale }: HeroProps) => {
             </Button>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pointer-events-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto pointer-events-auto">
             {content[locale].features.map((feature, index) => (
               <div 
                 key={index}
-                className="bg-[hsl(var(--card))]/50 backdrop-blur-sm border border-[hsl(var(--stroke))] rounded-lg p-4 hover:border-[hsl(var(--stroke-cyan))] transition-colors"
+                className="bg-[hsl(var(--card))]/50 backdrop-blur-sm border border-[hsl(var(--stroke))] rounded-lg p-3 hover:border-[hsl(var(--stroke-cyan))] transition-colors"
               >
-                <feature.icon className="w-6 h-6 text-[hsl(var(--accent-cyan))] mx-auto mb-2" />
-                <p className="text-sm text-[hsl(var(--text))] font-medium leading-tight">
+                <feature.icon className="w-5 h-5 text-[hsl(var(--accent-cyan))] mx-auto mb-1.5" />
+                <p className="text-xs text-[hsl(var(--text))] font-medium leading-tight text-center">
                   {feature.line1}
                 </p>
                 {feature.line2 && (
-                  <p className="text-sm text-[hsl(var(--text))] font-medium leading-tight">
+                  <p className="text-xs text-[hsl(var(--text))] font-medium leading-tight text-center">
                     {feature.line2}
                   </p>
                 )}

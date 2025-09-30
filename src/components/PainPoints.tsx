@@ -1,4 +1,4 @@
-import { Activity, Scale, Calculator, Wrench } from 'lucide-react';
+import { Stethoscope, Scale, Calculator, Wrench } from 'lucide-react';
 
 interface PainPointsProps {
   locale: 'gr' | 'en';
@@ -10,7 +10,7 @@ export const PainPoints = ({ locale }: PainPointsProps) => {
       title: 'Χάνετε πελάτες όταν δεν μπορείτε να απαντήσετε;',
       industries: [
         {
-          icon: Activity,
+          icon: Stethoscope,
           title: 'Γιατροί',
           pains: [
             'Χαμένες κλήσεις εκτός ωραρίου',
@@ -51,7 +51,7 @@ export const PainPoints = ({ locale }: PainPointsProps) => {
       title: 'Are you losing customers when you can\'t answer?',
       industries: [
         {
-          icon: Activity,
+          icon: Stethoscope,
           title: 'Doctors',
           pains: [
             'Missed calls after hours',

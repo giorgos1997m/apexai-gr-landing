@@ -1,4 +1,12 @@
-import { Star, User } from 'lucide-react';
+import { Star } from 'lucide-react';
+
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map(n => n[0])
+    .join('')
+    .toUpperCase();
+};
 
 interface TestimonialsProps {
   locale: 'gr' | 'en';
@@ -80,8 +88,8 @@ export const Testimonials = ({ locale }: TestimonialsProps) => {
               className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center">
-                  <User className="w-6 h-6 text-[hsl(var(--accent-cyan))]" />
+                <div className="w-12 h-12 bg-[hsl(var(--accent-cyan))]/20 rounded-full flex items-center justify-center">
+                  <span className="text-[hsl(var(--accent-cyan))] font-bold text-sm">{getInitials(testimonial.name)}</span>
                 </div>
                 <div>
                   <h4 className="font-bold text-[hsl(var(--text))]">{testimonial.name}</h4>

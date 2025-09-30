@@ -16,7 +16,7 @@ export const FAQ = ({ locale }: FAQProps) => {
       faqs: [
         {
           q: 'Πόσο γρήγορα μπορώ να ξεκινήσω;',
-          a: 'Το σύστημα εγκαθίσταται σε 24–48 ώρες. Μετά την Audit Call, η ομάδα μας στήνει τα πάντα και είστε έτοιμοι για τη 14ήμερη δοκιμαστική περίοδο.',
+          a: 'Το σύστημα εγκαθίσταται σε 48–72 ώρες. Μετά την Audit Call, η ομάδα μας στήνει τα πάντα και είστε έτοιμοι για τη 14ήμερη δοκιμαστική περίοδο.',
         },
         {
           q: 'Πώς γίνεται το Technical Onboarding;',
@@ -51,7 +51,7 @@ export const FAQ = ({ locale }: FAQProps) => {
       faqs: [
         {
           q: 'How quickly can I get started?',
-          a: 'The system is installed in 24–48 hours. After the Audit Call, our team sets everything up and you\'re ready for the 14-day trial period.',
+          a: 'The system is installed in 48–72 hours. After the Audit Call, our team sets everything up and you\'re ready for the 14-day trial period.',
         },
         {
           q: 'How does Technical Onboarding work?',

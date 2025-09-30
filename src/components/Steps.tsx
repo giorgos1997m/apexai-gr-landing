@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Rocket, TrendingUp } from 'lucide-react';
+import { Phone, Settings, Rocket } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface StepsProps {
@@ -21,13 +21,13 @@ export const Steps = ({ locale }: StepsProps) => {
           description: 'Καλούμε εσάς ή έναν συνεργάτη σας, εντοπίζουμε τις ευκαιρίες σας, προσδιορίζουμε το ROI και κάνουμε account setup.',
         },
         {
-          icon: Rocket,
+          icon: Settings,
           number: 2,
           title: 'Ενεργοποίηση 14ήμερης Δοκιμής',
           description: 'Οι τεχνικοί μας στήνουν το σύστημα, ενσωματώνουμε τις λύσεις AI σας και εκπαιδεύουμε την ομάδα σας.',
         },
         {
-          icon: TrendingUp,
+          icon: Rocket,
           number: 3,
           title: 'Launch & Optimize',
           description: 'Παρακολουθούμε την απόδοση, κάνουμε βελτιστοποιήσεις, και σας βοηθάμε να πετύχετε αποτελέσματα με λίγους μήνες.',
@@ -46,13 +46,13 @@ export const Steps = ({ locale }: StepsProps) => {
           description: 'We analyze your current processes, identify opportunities, determine ROI and make account setup.',
         },
         {
-          icon: Rocket,
+          icon: Settings,
           number: 2,
           title: 'Activate 14-day Trial',
           description: 'Our technicians set up the system, integrate your AI solutions and train your team.',
         },
         {
-          icon: TrendingUp,
+          icon: Rocket,
           number: 3,
           title: 'Launch & Optimize',
           description: 'We monitor performance, make optimizations, and help you achieve results within months.',

@@ -7,9 +7,9 @@ interface ResultsProps {
 export const Results = ({ locale }: ResultsProps) => {
   const content = {
     gr: {
-      title: 'Αποτελέσματα που μιλούν μόνοι τους',
+      title: 'Αποτελέσματα που μιλούν μόνα τους',
       subtitle: 'Μετρήσιμες βελτιώσεις από την πρώτη εβδομάδα',
-      columns: [
+      sections: [
         {
           title: 'Χρόνος & Απόδοση',
           results: [
@@ -17,6 +17,8 @@ export const Results = ({ locale }: ResultsProps) => {
             '24/7 διαθεσιμότητα',
             'Αυτόματα reminders & follow-ups',
             'Πλήρης ορατότητα στο pipeline σας',
+            '80% λιγότερες χειροκίνητες εργασίες',
+            'Λιγότερα no-shows με έξυπνες υπενθυμίσεις',
           ],
         },
         {
@@ -33,7 +35,7 @@ export const Results = ({ locale }: ResultsProps) => {
     en: {
       title: 'Results that speak for themselves',
       subtitle: 'Measurable improvements from the first week',
-      columns: [
+      sections: [
         {
           title: 'Time & Performance',
           results: [
@@ -41,6 +43,8 @@ export const Results = ({ locale }: ResultsProps) => {
             '24/7 availability',
             'Automatic reminders & follow-ups',
             'Full visibility into your pipeline',
+            '80% fewer manual tasks',
+            'Fewer no-shows with smart reminders',
           ],
         },
         {
@@ -68,15 +72,15 @@ export const Results = ({ locale }: ResultsProps) => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {content[locale].columns.map((column, index) => (
+        <div className="max-w-5xl mx-auto space-y-12">
+          {content[locale].sections.map((section, index) => (
             <div key={index}>
-              <h3 className="text-2xl font-bold mb-6 text-center">{column.title}</h3>
-              <div className="space-y-4">
-                {column.results.map((result, idx) => (
+              <h3 className="text-2xl font-bold mb-6 text-center">{section.title}</h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {section.results.map((result, idx) => (
                   <div 
                     key={idx}
-                    className="border-gradient-cyan rounded-xl p-4 hover:glow-cyan-sm transition-all duration-300 flex items-center gap-3"
+                    className="bg-[hsl(var(--card))]/30 border border-[hsl(var(--stroke-cyan))]/30 rounded-xl p-4 hover:border-[hsl(var(--stroke-cyan))] hover:glow-cyan-sm transition-all duration-300 flex items-center gap-3"
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>

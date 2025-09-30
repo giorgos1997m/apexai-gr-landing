@@ -57,11 +57,25 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  /* Mobile logo scaling */
+  /* Logo sizing */
+  .site-logo img {
+    height: 24px; /* 3x smaller on desktop/tablet */
+    transition: all 0.3s ease;
+  }
+
   @media (max-width: 640px) {
     .site-logo img {
-      height: calc(var(--desktop-logo-h) / 3) !important;
+      height: 24px; /* Keep same size on mobile */
     }
+    
+    /* Mobile font size reduction */
+    body {
+      font-size: 0.8rem;
+    }
+    h1 { font-size: 0.8em !important; }
+    h2 { font-size: 0.8em !important; }
+    h3 { font-size: 0.8em !important; }
+    p { font-size: 0.8em !important; }
   }
 }
 
