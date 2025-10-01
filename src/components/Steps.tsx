@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Settings, Rocket } from 'lucide-react';
+import { Phone, Cog, Rocket } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface StepsProps {
@@ -21,7 +21,7 @@ export const Steps = ({ locale }: StepsProps) => {
           description: 'Καλούμε εσάς ή έναν συνεργάτη σας, εντοπίζουμε τις ευκαιρίες σας, προσδιορίζουμε το ROI και κάνουμε account setup.',
         },
         {
-          icon: Settings,
+          icon: Cog,
           number: 2,
           title: 'Ενεργοποίηση 14ήμερης Δοκιμής',
           description: 'Οι τεχνικοί μας στήνουν το σύστημα, ενσωματώνουμε τις λύσεις AI σας και εκπαιδεύουμε την ομάδα σας.',
@@ -46,7 +46,7 @@ export const Steps = ({ locale }: StepsProps) => {
           description: 'We analyze your current processes, identify opportunities, determine ROI and make account setup.',
         },
         {
-          icon: Settings,
+          icon: Cog,
           number: 2,
           title: 'Activate 14-day Trial',
           description: 'Our technicians set up the system, integrate your AI solutions and train your team.',

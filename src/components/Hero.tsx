@@ -38,9 +38,11 @@ export const Hero = ({ locale }: HeroProps) => {
   const handleSecondaryClick = () => {
     const tryItSection = document.querySelector('#try-it');
     if (tryItSection) {
-      const yOffset = -100;
-      const y = tryItSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      const elementTop = tryItSection.getBoundingClientRect().top + window.pageYOffset;
+      const elementHeight = tryItSection.getBoundingClientRect().height;
+      const windowHeight = window.innerHeight;
+      const scrollToY = elementTop - (windowHeight / 2) + (elementHeight / 2);
+      window.scrollTo({ top: scrollToY, behavior: 'smooth' });
     }
   };
 

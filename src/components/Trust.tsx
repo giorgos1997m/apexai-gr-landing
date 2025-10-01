@@ -1,4 +1,4 @@
-import { Shield, TrendingUp, Headphones, MapPin } from 'lucide-react';
+import { Shield, TrendingUp, Headset, MapPin } from 'lucide-react';
 
 interface TrustProps {
   locale: 'gr' | 'en';
@@ -21,8 +21,8 @@ export const Trust = ({ locale }: TrustProps) => {
           description: 'Οι πελάτες μας βλέπουν 3× περισσότερα leads και +50% conversion rates μέσα σε λίγες εβδομάδες.',
         },
         {
-          icon: Headphones,
-          title: 'Υποστήριξη 24/7',
+          icon: Headset,
+          title: '24/7 Υποστήριξη',
           description: 'Η ομάδα μας είναι πάντα διαθέσιμη να σας βοηθήσει με οποιοδήποτε θέμα ή ερώτημα.',
         },
         {
@@ -47,7 +47,7 @@ export const Trust = ({ locale }: TrustProps) => {
           description: 'Our clients see 3× more leads and +50% conversion rates within weeks.',
         },
         {
-          icon: Headphones,
+          icon: Headset,
           title: '24/7 Support',
           description: 'Our team is always available to help you with any issue or question.',
         },

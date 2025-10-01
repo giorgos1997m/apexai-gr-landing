@@ -9,7 +9,7 @@ export const Services = ({ locale }: ServicesProps) => {
     gr: {
       title: 'Υπηρεσίες',
       subtitle: 'Τρεις βασικές λύσεις AI που μεταμορφώνουν την επιχείρησή σας',
-      services: [
+        services: [
         {
           icon: Zap,
           title: 'Automations',
@@ -17,6 +17,8 @@ export const Services = ({ locale }: ServicesProps) => {
             'Αυτόματη αποστολή email/SMS',
             'Αυτόματη συλλογή reviews',
             'Αυτόματος συγχρονισμός με CRM',
+            'Full Αυτοματοποιημένο Website',
+            'Loyalty Campaigns',
           ],
         },
         {
@@ -43,7 +45,7 @@ export const Services = ({ locale }: ServicesProps) => {
     en: {
       title: 'Services',
       subtitle: 'Three core AI solutions that transform your business',
-      services: [
+        services: [
         {
           icon: Zap,
           title: 'Automations',
@@ -51,6 +53,8 @@ export const Services = ({ locale }: ServicesProps) => {
             'Automatic email/SMS sending',
             'Automatic review collection',
             'Automatic CRM sync',
+            'Full Automated Website',
+            'Loyalty Campaigns',
           ],
         },
         {

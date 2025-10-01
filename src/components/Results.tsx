@@ -80,7 +80,7 @@ export const Results = ({ locale }: ResultsProps) => {
                 {section.results.map((result, idx) => (
                   <div 
                     key={idx}
-                    className="bg-[hsl(var(--card))]/30 border border-[hsl(var(--stroke-cyan))]/30 rounded-xl p-4 hover:border-[hsl(var(--stroke-cyan))] hover:glow-cyan-sm transition-all duration-300 flex items-center gap-3"
+                    className="bg-[hsl(var(--accent-cyan))]/5 border border-[hsl(var(--stroke-cyan))]/30 rounded-xl p-4 hover:scale-105 hover:bg-[hsl(var(--accent-cyan))]/10 hover:border-[hsl(var(--stroke-cyan))] hover:glow-cyan-sm transition-all duration-300 flex items-center gap-3"
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>
