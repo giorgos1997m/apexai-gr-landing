@@ -9,7 +9,7 @@ export const Services = ({ locale }: ServicesProps) => {
     gr: {
       title: 'Υπηρεσίες',
       subtitle: 'Τρεις βασικές λύσεις AI που μεταμορφώνουν την επιχείρησή σας',
-        services: [
+      services: [
         {
           icon: Zap,
           title: 'Automations',
@@ -20,6 +20,7 @@ export const Services = ({ locale }: ServicesProps) => {
             'Full Αυτοματοποιημένο Website',
             'Loyalty Campaigns',
           ],
+          footer: 'λιγότερες χειροκίνητες δουλειές · συνέπεια · καλύτερη εμπειρία πελάτη',
         },
         {
           icon: MessageCircle,
@@ -29,6 +30,7 @@ export const Services = ({ locale }: ServicesProps) => {
             'Απαντήσεις σε FAQs αμέσως',
             'Συλλογή στοιχείων αυτόματα',
           ],
+          footer: 'άμεση εξυπηρέτηση · περισσότερα qualified leads · μείωση χειροκίνητων εργασιών',
         },
         {
           icon: Phone,
@@ -39,13 +41,14 @@ export const Services = ({ locale }: ServicesProps) => {
             'Qualified routing σε εσάς',
             'Γρήγορα follow-ups',
           ],
+          footer: 'μηδέν χαμένες κλήσεις · αυτόματα follow-ups · επαγγελματική εικόνα',
         },
       ],
     },
     en: {
       title: 'Services',
       subtitle: 'Three core AI solutions that transform your business',
-        services: [
+      services: [
         {
           icon: Zap,
           title: 'Automations',
@@ -56,6 +59,7 @@ export const Services = ({ locale }: ServicesProps) => {
             'Full Automated Website',
             'Loyalty Campaigns',
           ],
+          footer: 'fewer manual tasks · consistency · better customer experience',
         },
         {
           icon: MessageCircle,
@@ -65,6 +69,7 @@ export const Services = ({ locale }: ServicesProps) => {
             'Answer FAQs instantly',
             'Collect information automatically',
           ],
+          footer: 'instant service · more qualified leads · reduced manual work',
         },
         {
           icon: Phone,
@@ -75,6 +80,7 @@ export const Services = ({ locale }: ServicesProps) => {
             'Qualified routing to you',
             'Fast follow-ups',
           ],
+          footer: 'zero missed calls · automatic follow-ups · professional image',
         },
       ],
     },
@@ -96,11 +102,13 @@ export const Services = ({ locale }: ServicesProps) => {
           {content[locale].services.map((service, index) => (
             <div 
               key={index}
-              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 hover:glow-cyan-sm"
+              className="bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 glow-cyan-sm hover:glow-cyan"
             >
-              <service.icon className="w-16 h-16 text-[hsl(var(--accent-cyan))] mb-6" strokeWidth={1.5} />
+              <div className="bg-[hsl(var(--accent-green))] rounded-full w-20 h-20 flex items-center justify-center mb-6">
+                <service.icon className="w-10 h-10 text-white" strokeWidth={2} />
+              </div>
               <h3 className="text-2xl font-bold mb-6 text-[hsl(var(--text))]">{service.title}</h3>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-6">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0 mt-0.5" />
@@ -108,6 +116,9 @@ export const Services = ({ locale }: ServicesProps) => {
                   </li>
                 ))}
               </ul>
+              <p className="text-[hsl(var(--accent-cyan))] text-sm font-medium pt-4 border-t border-[hsl(var(--stroke))]">
+                {service.footer}
+              </p>
             </div>
           ))}
         </div>
