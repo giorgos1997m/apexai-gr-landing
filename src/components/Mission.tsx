@@ -12,7 +12,7 @@ export const Mission = ({ locale }: MissionProps) => {
   const content = {
     gr: {
       title: 'Η Αποστολή μας',
-      description: 'Πιστεύουμε ότι οι μικρές επιχειρήσεις αξίζουν AI επιπέδου επιχείρησης χωρίς την πολυπλοκότητα ή το κόστος των μεγάλων εταιρειών. Η αποστολή μας είναι να εκδημοκρατίσουμε την αυτοματοποίηση AI, καθιστώντας την προσιτή, οικονομική και αποτελεσματική για ανεξάρτητους επαγγελματίες και μικρές ομάδες.',
+      description: 'Για ανεξάρτητους επαγγελματίες και όλους τους κλάδους της αγοράς',
       stats: [
         { value: 50, suffix: '+', label: 'Επιχειρήσεις' },
         { value: 300000, suffix: '+', label: 'Αλληλεπιδράσεις μέχρι σήμερα' },
@@ -21,7 +21,7 @@ export const Mission = ({ locale }: MissionProps) => {
     },
     en: {
       title: 'Our Mission',
-      description: 'At APEX AI, we believe that every business deserves access to cutting-edge automation technology. Our mission is to democratize artificial intelligence by making it accessible, effective, and incredibly easy for professionals who want to focus on what they do best — serving their customers.',
+      description: 'For independent professionals and all market sectors',
       stats: [
         { value: 50, suffix: '+', label: 'Businesses' },
         { value: 300000, suffix: '+', label: 'Interactions to date' },

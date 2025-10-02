@@ -68,14 +68,20 @@ All colors MUST be HSL.
       height: 24px; /* Keep same size on mobile */
     }
     
-    /* Mobile font size reduction */
+    /* Mobile font size increase by 30% */
     body {
-      font-size: 0.8rem;
+      font-size: 1.04rem;
     }
-    h1 { font-size: 0.8em !important; }
-    h2 { font-size: 0.8em !important; }
-    h3 { font-size: 0.8em !important; }
-    p { font-size: 0.8em !important; }
+    h1 { font-size: 1.3em !important; }
+    h2 { font-size: 1.3em !important; }
+    h3 { font-size: 1.3em !important; }
+    p { font-size: 1.3em !important; }
+    
+    /* Mobile footer logo 20% smaller */
+    footer .site-logo img,
+    footer img[alt="APEX AI"] {
+      height: 38.4px !important; /* 48px - 20% = 38.4px */
+    }
   }
 }
 

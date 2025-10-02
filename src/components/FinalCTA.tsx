@@ -1,4 +1,4 @@
-import { Shield, Clock, DollarSign } from 'lucide-react';
+import { Shield, Clock, Headset } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface FinalCTAProps {
@@ -14,7 +14,7 @@ export const FinalCTA = ({ locale }: FinalCTAProps) => {
       features: [
         { icon: Shield, text: 'Ασφάλεια για τα δεδομένα σας' },
         { icon: Clock, text: 'Setup σε 48 ώρες' },
-        { icon: DollarSign, text: '24/7 υποστήριξη' },
+        { icon: Headset, text: '24/7 υποστήριξη' },
       ],
     },
     en: {
@@ -24,7 +24,7 @@ export const FinalCTA = ({ locale }: FinalCTAProps) => {
       features: [
         { icon: Shield, text: 'Data security' },
         { icon: Clock, text: 'Setup in 48 hours' },
-        { icon: DollarSign, text: '24/7 support' },
+        { icon: Headset, text: '24/7 support' },
       ],
     },
   };

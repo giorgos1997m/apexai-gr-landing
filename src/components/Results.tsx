@@ -25,8 +25,8 @@ export const Results = ({ locale }: ResultsProps) => {
           title: 'Leads & Πωλήσεις',
           results: [
             '3× περισσότερα qualified leads',
-            '+50% conversion rate',
-            '30–40 reviews/μήνα',
+            '+40% conversion rate',
+            '50+ reviews/μήνα',
             'Περισσότερα επαναληπτικά ραντεβού',
           ],
         },
@@ -51,8 +51,8 @@ export const Results = ({ locale }: ResultsProps) => {
           title: 'Leads & Sales',
           results: [
             '3× more qualified leads',
-            '+50% conversion rate',
-            '30–40 reviews/month',
+            '+40% conversion rate',
+            '50+ reviews/month',
             'More repeat appointments',
           ],
         },
@@ -82,22 +82,22 @@ export const Results = ({ locale }: ResultsProps) => {
                     key={idx}
                     className="relative bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-4 hover:scale-[1.02] hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 flex items-center gap-3 touch-manipulation active:scale-[1.02] active:border-[hsl(var(--stroke-cyan))]"
                     style={{
-                      boxShadow: '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)'
+                      boxShadow: '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.35) inset, 0 0 34px hsla(var(--glow-cyan), 0.28)';
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.45) inset, 0 0 40px hsla(var(--glow-cyan), 0.35), 0 0 60px hsla(var(--glow-cyan), 0.20)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)';
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)';
                     }}
                     onTouchStart={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.35) inset, 0 0 34px hsla(var(--glow-cyan), 0.28)';
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.45) inset, 0 0 40px hsla(var(--glow-cyan), 0.35), 0 0 60px hsla(var(--glow-cyan), 0.20)';
                     }}
                     onTouchEnd={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)';
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)';
                     }}
                   >
-                    <Check className="w-5 h-5 text-[hsl(var(--accent-cyan))] flex-shrink-0" />
+                    <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>
                   </div>
                 ))}
