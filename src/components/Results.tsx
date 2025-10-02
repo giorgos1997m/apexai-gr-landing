@@ -80,7 +80,22 @@ export const Results = ({ locale }: ResultsProps) => {
                 {section.results.map((result, idx) => (
                   <div 
                     key={idx}
-                    className="bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-4 hover:scale-[1.02] hover:border-[hsl(var(--stroke-cyan))] glow-cyan-sm hover:glow-cyan transition-all duration-300 flex items-center gap-3 touch-manipulation active:scale-[1.02] active:border-[hsl(var(--stroke-cyan))] active:glow-cyan"
+                    className="relative bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-4 hover:scale-[1.02] hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 flex items-center gap-3 touch-manipulation active:scale-[1.02] active:border-[hsl(var(--stroke-cyan))]"
+                    style={{
+                      boxShadow: '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.35) inset, 0 0 34px hsla(var(--glow-cyan), 0.28)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)';
+                    }}
+                    onTouchStart={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.35) inset, 0 0 34px hsla(var(--glow-cyan), 0.28)';
+                    }}
+                    onTouchEnd={(e) => {
+                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.15) inset, 0 0 22px hsla(var(--glow-cyan), 0.10)';
+                    }}
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-cyan))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>

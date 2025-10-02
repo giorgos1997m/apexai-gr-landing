@@ -11,16 +11,16 @@ export const TryIt = ({ locale }: TryItProps) => {
       chatbot: {
         title: 'AI Chatbot Demo',
         embed: 'Interactive chatbot demo will be embedded here',
-        userMessage: 'User: "I need to book an appointment"',
-        aiResponse: 'AI: "I\'d be happy to help you schedule an appointment. What service are you looking for?"',
-        button: 'Try Chatbot Demo',
+        userMessage: 'Χρήστης: "Θέλω να κλείσω ένα ραντεβού"',
+        aiResponse: 'AI: "Μπορώ να σας βοηθήσω να κλείσετε ραντεβού. Για ποια υπηρεσία ενδιαφέρεστε;"',
+        button: 'Δοκιμάστε το Chatbot',
       },
       voice: {
         title: 'AI Voice Agent Demo',
         embed: 'Voice agent demo will be embedded here',
-        userMessage: 'User: "Hello, I\'m calling to schedule a consultation..."',
-        aiResponse: 'AI: "Of course! Let me check our availability for you..."',
-        button: 'Try Voice Agent Demo',
+        userMessage: 'Χρήστης: "Γεια σας, θα ήθελα να κλείσω ένα ραντεβού…"',
+        aiResponse: 'AI: "Βεβαίως! Αφήστε με να ελέγξω τη διαθεσιμότητα…"',
+        button: 'Δοκιμάστε τον Voice Agent',
       },
     },
     en: {

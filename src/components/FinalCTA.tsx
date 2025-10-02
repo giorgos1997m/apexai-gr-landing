@@ -43,7 +43,7 @@ export const FinalCTA = ({ locale }: FinalCTAProps) => {
             
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 text-lg px-12 py-6 mb-8"
+              className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 text-lg px-12 py-6 mb-8 w-full sm:w-auto max-w-full"
               style={{
                 boxShadow: '0 0 40px hsla(var(--glow-cyan), 0.4), 0 0 80px hsla(var(--glow-cyan), 0.2)'
               }}

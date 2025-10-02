@@ -65,10 +65,10 @@ export const Hero = ({ locale }: HeroProps) => {
             {content[locale].subtitle}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 pointer-events-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 pointer-events-auto px-4">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan text-lg px-8 py-6"
+              className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan text-lg px-8 py-6 w-full sm:w-auto"
             >
               {content[locale].ctaPrimary}
             </Button>
@@ -76,7 +76,7 @@ export const Hero = ({ locale }: HeroProps) => {
               size="lg"
               variant="outline"
               onClick={handleSecondaryClick}
-              className="border-[hsl(var(--stroke-cyan))] text-[hsl(var(--accent-cyan))] hover:bg-[hsl(var(--card))] text-lg px-8 py-6 pointer-events-auto"
+              className="border-[hsl(var(--stroke-cyan))] text-[hsl(var(--accent-cyan))] hover:bg-[hsl(var(--card))] text-lg px-8 py-6 pointer-events-auto w-full sm:w-auto"
             >
               {content[locale].ctaSecondary}
             </Button>

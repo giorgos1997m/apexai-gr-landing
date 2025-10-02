@@ -59,7 +59,7 @@ All colors MUST be HSL.
 
   /* Logo sizing */
   .site-logo img {
-    height: 48px; /* Desktop/tablet logo size */
+    height: 36px; /* Desktop logo size (25% smaller) */
     transition: all 0.3s ease;
   }
 

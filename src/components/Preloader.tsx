@@ -32,7 +32,7 @@ export const Preloader = () => {
           alt="APEX AI"
           className="h-16 mx-auto mb-8"
         />
-        <div className="w-full max-w-[400px] h-1 bg-[hsl(var(--stroke))] rounded-full overflow-hidden">
+        <div className="w-full max-w-[200px] h-1 bg-[hsl(var(--stroke))] rounded-full overflow-hidden">
           <div 
             className="h-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] transition-all duration-300 glow-cyan-sm"
             style={{ width: `${progress}%` }}
