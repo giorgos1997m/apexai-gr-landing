@@ -15,7 +15,7 @@ export const Mission = ({ locale }: MissionProps) => {
       description: 'Πιστεύουμε ότι οι μικρές επιχειρήσεις αξίζουν AI επιπέδου επιχείρησης χωρίς την πολυπλοκότητα ή το κόστος των μεγάλων εταιρειών. Η αποστολή μας είναι να εκδημοκρατίσουμε την αυτοματοποίηση AI, καθιστώντας την προσιτή, οικονομική και αποτελεσματική για ανεξάρτητους επαγγελματίες και μικρές ομάδες.',
       stats: [
         { value: 50, suffix: '+', label: 'Επιχειρήσεις' },
-        { value: 300, suffix: '.000+', label: 'Αλληλεπιδράσεις μέχρι σήμερα' },
+        { value: 300000, suffix: '+', label: 'Αλληλεπιδράσεις μέχρι σήμερα' },
         { value: 98, suffix: '%', label: 'Ικανοποίηση πελατών' },
       ],
     },
@@ -24,7 +24,7 @@ export const Mission = ({ locale }: MissionProps) => {
       description: 'At APEX AI, we believe that every business deserves access to cutting-edge automation technology. Our mission is to democratize artificial intelligence by making it accessible, effective, and incredibly easy for professionals who want to focus on what they do best — serving their customers.',
       stats: [
         { value: 50, suffix: '+', label: 'Businesses' },
-        { value: 300, suffix: ',000+', label: 'Interactions to date' },
+        { value: 300000, suffix: '+', label: 'Interactions to date' },
         { value: 98, suffix: '%', label: 'Customer satisfaction' },
       ],
     },
@@ -60,13 +60,13 @@ export const Mission = ({ locale }: MissionProps) => {
       
       setCounts({
         businesses: Math.floor(50 * progress),
-        interactions: Math.floor(300 * progress),
+        interactions: Math.floor(300000 * progress),
         satisfaction: Math.floor(98 * progress),
       });
 
       if (currentStep >= steps) {
         clearInterval(interval);
-        setCounts({ businesses: 50, interactions: 300, satisfaction: 98 });
+        setCounts({ businesses: 50, interactions: 300000, satisfaction: 98 });
       }
     }, stepDuration);
   };
