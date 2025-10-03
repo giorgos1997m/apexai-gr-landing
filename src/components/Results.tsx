@@ -61,7 +61,7 @@ export const Results = ({ locale }: ResultsProps) => {
   };
 
   return (
-    <section id="results" className="py-20">
+    <section id="results" className="results-section py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -80,22 +80,6 @@ export const Results = ({ locale }: ResultsProps) => {
                 {section.results.map((result, idx) => (
                   <div 
                     key={idx}
-                    className="relative bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-4 hover:scale-[1.02] hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 flex items-center gap-3 touch-manipulation active:scale-[1.02] active:border-[hsl(var(--stroke-cyan))]"
-                    style={{
-                      boxShadow: '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.45) inset, 0 0 40px hsla(var(--glow-cyan), 0.35), 0 0 60px hsla(var(--glow-cyan), 0.20)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)';
-                    }}
-                    onTouchStart={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.45) inset, 0 0 40px hsla(var(--glow-cyan), 0.35), 0 0 60px hsla(var(--glow-cyan), 0.20)';
-                    }}
-                    onTouchEnd={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 0 1px hsla(var(--glow-cyan), 0.25) inset, 0 0 30px hsla(var(--glow-cyan), 0.20), 0 0 50px hsla(var(--glow-cyan), 0.12)';
-                    }}
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>

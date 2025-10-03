@@ -91,7 +91,7 @@ export const Mission = ({ locale }: MissionProps) => {
           </div>
           <div className="text-center">
             <div className="text-5xl md:text-6xl font-bold text-gradient-cyan mb-2">
-              {counts.interactions}{content[locale].stats[1].suffix}
+              {counts.interactions.toLocaleString('de-DE')}{content[locale].stats[1].suffix}
             </div>
             <p className="text-[hsl(var(--text-muted))]">{content[locale].stats[1].label}</p>
           </div>
