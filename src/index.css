@@ -348,49 +348,48 @@ div,
   }
 }
 
-/* ============ C) SCROLL REVEAL ANIMATIONS ============ */
-/* Base reveal states */
-.reveal,
-[data-reveal] {
+/* ============ C) SCROLL REVEAL ANIMATIONS (SAFE & DISCREET) ============ */
+/* Restore normal scroll */
+html, body {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto !important;
+}
+
+/* DON'T change position on Spline/hero */
+.spline-hero, .spline-canvas {
+  position: initial !important;
+  inset: auto !important;
+  pointer-events: auto;
+}
+
+/* No blanket section hiding */
+section.is-hidden {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ----- SAFE, DISCREET REVEALS ----- */
+.will-reveal {
   opacity: 0;
-  transform: translate3d(0, 18px, 0) scale(0.98);
-  transition: opacity .5s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+  transform: translate3d(0, 12px, 0);
+  transition: opacity .40s ease, transform .45s ease;
   will-change: opacity, transform;
 }
 
-.reveal.is-inview,
-[data-reveal].is-inview {
+.will-reveal.inview {
   opacity: 1;
   transform: none;
 }
 
-/* Variants */
-[data-reveal="up"] {
-  transform: translate3d(0, 18px, 0);
-}
-[data-reveal="fade"] {
-  transform: none;
-}
-[data-reveal="scale"] {
-  transform: scale(.96);
-}
-
-/* Stagger containers */
-[data-stagger] > * {
-  opacity: 0;
-  transform: translate3d(0, 14px, 0);
-  transition: opacity .45s ease, transform .55s ease;
-}
-
-[data-stagger].is-inview > * {
-  opacity: 1;
-  transform: none;
+/* Light stagger for groups */
+[data-stagger] > .will-reveal {
+  transition-delay: 0s;
 }
 
 /* Reduced motion: show instantly */
 @media (prefers-reduced-motion: reduce) {
-  .reveal, [data-reveal],
-  [data-stagger] > * {
+  .will-reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

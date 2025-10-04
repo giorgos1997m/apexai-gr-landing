@@ -2,52 +2,48 @@ import { useEffect } from 'react';
 
 export const useScrollReveal = () => {
   useEffect(() => {
+    // Safe, discreet reveals - target ONLY specific elements, NOT whole sections
+    const targets = document.querySelectorAll([
+      /* hero text & CTAs */
+      '#hero h1, #hero h2, #hero p, #hero .btn, #hero .button, #hero .cta',
+      /* services cards */
+      '#services .card, #services h2, #services h3, #services p, #services li',
+      /* results pills & headings */
+      '#results h2, #results h3, #results .pill, #results .card, #results .stat',
+      /* steps / try section */
+      '#how-it-works .card, #try .card, #try .btn',
+      /* FAQ items */
+      '#faq .faq-item, #faq .faq-question, #faq .faq-answer',
+      /* testimonials */
+      '.testimonial, .testimonials .card',
+      /* footer counters/text */
+      'footer h3, footer p, footer .stat'
+    ].join(','));
+
+    targets.forEach(el => el.classList.add('will-reveal'));
+
+    // Group stagger (optional, light)
+    document.querySelectorAll('#services .grid, #results .grid, .cards, .pill-grid, .testimonials')
+      .forEach(g => g.setAttribute('data-stagger', ''));
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          e.target.classList.add('is-inview');
-          // reveal-once: don't hide again
-          if (e.target.hasAttribute('data-reveal-once')) io.unobserve(e.target);
-        } else {
-          // if no reveal-once, animation can replay
-          if (!e.target.hasAttribute('data-reveal-once')) {
-            e.target.classList.remove('is-inview');
-          }
+          e.target.classList.add('inview');
+          // reveal-once: unobserve after first reveal
+          io.unobserve(e.target);
         }
       });
-    }, { root: null, threshold: 0.1 });
+    }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 
-    // Target selectors: sections, cards, titles, buttons
-    const selectors = [
-      'section', '.card', '.pill', '.feature', '.stat', '.testimonial',
-      'h1', 'h2', 'h3', 'h4', 'p', '.btn', '.button', '.cta', '.nav-item',
-      '#hero', '#how-it-works', '#try', '#services', '#results', '#faq', 'footer'
-    ];
+    document.querySelectorAll('.will-reveal').forEach(el => io.observe(el));
 
-    // Auto-mark elements: if no data-reveal, give default "up"
-    document.querySelectorAll(selectors.join(',')).forEach(el => {
-      // ignore Spline canvas/iframe to prevent gesture/perf issues
-      if (el.closest('.spline-hero, .spline, .spline-canvas, .no-reveal')) return;
-
-      if (!el.hasAttribute('data-reveal') &&
-          !el.classList.contains('reveal') &&
-          !el.hasAttribute('data-stagger')) {
-        el.setAttribute('data-reveal', 'up');
-        el.setAttribute('data-reveal-once', ''); // plays once
-      }
-      io.observe(el);
-    });
-
-    // Stagger for grids/lists
-    document.querySelectorAll(
-      '#services .grid, #results .grid, .cards, .pill-grid, .features, .faq-list, .testimonials'
-    ).forEach(group => {
-      group.setAttribute('data-stagger', '');
-      // delays for children
-      Array.from(group.children).forEach((child, i) => {
-        (child as HTMLElement).style.transitionDelay = `${Math.min(i * 0.08, 0.6)}s`;
+    // Stagger delays (gentle)
+    document.querySelectorAll('[data-stagger]').forEach(group => {
+      const kids = group.querySelectorAll('.will-reveal');
+      kids.forEach((k, i) => {
+        (k as HTMLElement).style.transitionDelay = `${Math.min(i * 0.06, 0.48)}s`;
       });
-      io.observe(group);
     });
 
     return () => {
