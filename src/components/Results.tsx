@@ -80,6 +80,7 @@ export const Results = ({ locale }: ResultsProps) => {
                 {section.results.map((result, idx) => (
                   <div 
                     key={idx}
+                    className="result-pill flex items-center gap-3 p-4"
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
                     <span className="text-[hsl(var(--text))]">{result}</span>
