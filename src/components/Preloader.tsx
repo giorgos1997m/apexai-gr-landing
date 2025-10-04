@@ -26,19 +26,19 @@ export const Preloader = () => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-[hsl(var(--bg))] transition-opacity duration-500"
       style={{ opacity: progress >= 100 ? 0 : 1 }}
     >
-      <div className="text-center">
+      <div className="loading-brand">
         <img 
           src="https://lucky-jelly-01a0f7.netlify.app/logo.png" 
           alt="APEX AI"
-          className="h-16 mx-auto mb-8"
+          className="loading-logo"
         />
-        <div className="w-full max-w-[280px] h-1 bg-[hsl(var(--stroke))] rounded-full overflow-hidden">
+        <div className="loading-bar">
           <div 
-            className="h-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] transition-all duration-300 glow-cyan-sm"
+            className="fill"
             style={{ width: `${progress}%` }}
           />
         </div>
-        <p className="mt-4 text-[hsl(var(--text-muted))] text-sm">{progress}%</p>
+        <p className="loading-percent text-[hsl(var(--text-muted))]">{progress}%</p>
       </div>
     </div>
   );

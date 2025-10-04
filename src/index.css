@@ -164,7 +164,124 @@ All colors MUST be HSL.
   }
 }
 
-/* === RESULTS – CYAN HALO / NEON CARDS === */
+/* ============ A) LOADING SCREEN ============ */
+.loading-brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-brand .loading-logo {
+  display: block;
+  width: clamp(220px, 62vw, 560px);
+  margin: 0 auto;
+}
+
+.loading-brand .loading-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-brand .loading-bar > .fill {
+  height: 100%;
+  background: linear-gradient(90deg, #19d7ff, #11a8ff);
+  transition: width 0.2s ease;
+  box-shadow: 0 0 12px rgba(25, 215, 255, 0.6);
+}
+
+.loading-brand .loading-percent {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.loading-bar,
+.loading-bar[style*="width"] {
+  max-width: none !important;
+}
+
+.loading-container,
+.loading {
+  text-align: center;
+}
+
+.loading-container .loading-bar,
+.loading .loading-bar {
+  margin: 0 auto;
+}
+
+/* ============ B) MOBILE STABILITY ============ */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  overscroll-behavior: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero,
+.hero-section,
+[data-hero],
+.spline-hero {
+  min-height: calc(100svh - 64px);
+}
+
+@media (max-width: 768px) {
+  .parallax,
+  [data-parallax],
+  .spline-hero,
+  [class*="parallax"],
+  [class*="tilt"] {
+    transform: none !important;
+    will-change: auto !important;
+    transition: none !important;
+  }
+
+  .spline-hero,
+  .spline-canvas {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.header,
+header[role="banner"] {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+section,
+div,
+.container,
+.wrapper {
+  max-width: 100vw;
+}
+
+/* ============ RESULTS SECTION - CYAN HALO/NEON CARDS ============ */
 #results.results-section {
   position: relative;
   isolation: isolate;
@@ -191,7 +308,7 @@ All colors MUST be HSL.
   pointer-events: none;
 }
 
-#results h2, 
+#results h2,
 #results h3 {
   text-shadow: 0 0 18px rgba(0, 209, 255, 0.35);
 }
@@ -202,10 +319,8 @@ All colors MUST be HSL.
 #results .pill {
   background: #0E141A;
   border: 1px solid rgba(0, 209, 255, 0.35);
-  box-shadow:
-    0 0 0 1px rgba(0, 209, 255, 0.15) inset,
-    0 10px 28px rgba(0, 209, 255, 0.10),
-    0 0 36px rgba(0, 209, 255, 0.14);
+  box-shadow: 0 0 0 1px rgba(0, 209, 255, 0.15) inset,
+    0 10px 28px rgba(0, 209, 255, 0.10), 0 0 36px rgba(0, 209, 255, 0.14);
   border-radius: 12px;
 }
 
@@ -214,15 +329,13 @@ All colors MUST be HSL.
   filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.45));
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   #results .result-pill:hover,
   #results .metric-pill:hover {
-    box-shadow:
-      0 0 0 1px rgba(0, 209, 255, 0.22) inset,
-      0 14px 34px rgba(0, 209, 255, 0.14),
-      0 0 42px rgba(0, 209, 255, 0.20);
+    box-shadow: 0 0 0 1px rgba(0, 209, 255, 0.22) inset,
+      0 14px 34px rgba(0, 209, 255, 0.14), 0 0 42px rgba(0, 209, 255, 0.20);
     transform: translateY(-1px);
-    transition: all .18s ease;
+    transition: all 0.18s ease;
   }
 }
 
