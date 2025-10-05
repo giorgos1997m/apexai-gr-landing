@@ -281,46 +281,116 @@ div,
   max-width: 100vw;
 }
 
-/* ============ RESULTS SECTION - CYAN HALO/NEON CARDS ============ */
-#results.results-section {
+/* ============ A) MOBILE HERO + B) FULL-SCREEN HERO ============ */
+#hero,
+.hero,
+.hero-section {
   position: relative;
-  isolation: isolate;
+  min-height: 100svh;
+  min-height: 100dvh;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin: 0 !important;
 }
 
-#results.results-section::before {
+/* Spline behind content, but interactive on mobile */
+.spline-hero,
+.spline-canvas,
+#hero .spline-embed {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  pointer-events: auto !important;
+}
+
+/* Hero content above Spline */
+#hero .hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge inside hero */
+#hero .spline-badge,
+#hero [data-spline-badge] {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+}
+
+/* Remove margins that open up hero */
+#hero + section { margin-top: 0 !important; }
+
+/* ============ C) SITE-WIDE REVEALS (discreet) ============ */
+.will-reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity .42s ease, transform .50s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+.will-reveal.inview { opacity: 1; transform: none; }
+
+/* Variants */
+[data-reveal="left"]  { transform: translate3d(-16px, 0, 0); }
+[data-reveal="right"] { transform: translate3d( 16px, 0, 0); }
+[data-reveal="up"]    { transform: translate3d(  0, 14px, 0); }
+[data-reveal="fade"]  { transform: none; }
+
+@media (prefers-reduced-motion: reduce){
+  .will-reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* ============ D) RESULTS GLOW SCOPED TO METRICS ONLY ============ */
+#results { 
+  position: relative; 
+  isolation: isolate; 
+}
+
+/* Wrapper for metrics grids so title/subtitle don't get glow */
+#results .metrics-wrap { 
+  position: relative; 
+  z-index: 0; 
+}
+
+/* Glow BEHIND grids only */
+#results .metrics-wrap::before {
   content: "";
   position: absolute;
-  inset: 0;
-  top: -120px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1200px, 95vw);
-  height: 520px;
-  background: radial-gradient(
-    60% 75% at 50% 40%,
-    rgba(0, 209, 255, 0.20) 0%,
-    rgba(0, 209, 255, 0.12) 35%,
-    rgba(0, 209, 255, 0.06) 55%,
-    rgba(0, 209, 255, 0.00) 75%
-  );
-  filter: blur(42px);
+  width: min(1200px, 96vw);
+  height: 560px;
+  top: -40px;
+  background:
+    radial-gradient(60% 75% at 50% 35%,
+      rgba(0,209,255,.18) 0%,
+      rgba(0,209,255,.10) 36%,
+      rgba(0,209,255,.06) 58%,
+      rgba(0,209,255,0) 78%);
+  filter: blur(38px);
   z-index: -1;
   pointer-events: none;
 }
 
-#results h2,
-#results h3 {
+/* Text shadow only on metric section titles */
+#results .metrics-wrap h3 {
   text-shadow: 0 0 18px rgba(0, 209, 255, 0.35);
 }
 
-#results .result-pill,
+/* Neon border/glow only on metrics pills */
 #results .metric-pill,
+#results .pill,
 #results .card,
-#results .pill {
+#results .stat,
+#results .result-pill {
   background: #0E141A;
-  border: 1px solid rgba(0, 209, 255, 0.35);
-  box-shadow: 0 0 0 1px rgba(0, 209, 255, 0.15) inset,
-    0 10px 28px rgba(0, 209, 255, 0.10), 0 0 36px rgba(0, 209, 255, 0.14);
+  border: 1px solid rgba(0,209,255,.35);
+  box-shadow:
+    0 0 0 1px rgba(0,209,255,.14) inset,
+    0 10px 28px rgba(0,209,255,.10),
+    0 0 36px rgba(0,209,255,.12);
   border-radius: 12px;
 }
 
@@ -340,8 +410,8 @@ div,
 }
 
 @media (max-width: 640px) {
-  #results.results-section::before {
-    top: -80px;
+  #results .metrics-wrap::before {
+    top: -60px;
     width: 120%;
     height: 420px;
     filter: blur(36px);

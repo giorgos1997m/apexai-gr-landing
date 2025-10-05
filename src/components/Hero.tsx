@@ -47,14 +47,14 @@ export const Hero = ({ locale }: HeroProps) => {
   };
 
   return (
-    <section id="hero" className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="hero" className="hero-section relative overflow-hidden">
       <iframe
         src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
-        className="spline-hero absolute inset-0 w-full h-full pointer-events-auto"
-        style={{ border: 'none', zIndex: 0 }}
+        className="spline-hero absolute inset-0 w-full h-full"
+        style={{ border: 'none' }}
       />
       
-      <div className="relative z-10 container mx-auto px-4 py-20 pointer-events-none">
+      <div className="hero-content relative container mx-auto px-4 py-20 pointer-events-none">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 pointer-events-auto">
             {content[locale].title}{' '}
