@@ -324,22 +324,53 @@ div,
 #hero + section { margin-top: 0 !important; }
 
 /* ============ C) SITE-WIDE REVEALS (discreet) ============ */
-.will-reveal {
-  opacity: 0;
-  transform: translate3d(0, 14px, 0);
-  transition: opacity .42s ease, transform .50s cubic-bezier(.22,.61,.36,1);
-  will-change: opacity, transform;
+.reveal { 
+  opacity: 0; 
+  transition: opacity .42s ease, transform .50s cubic-bezier(.22,.61,.36,1); 
+  will-change: opacity, transform; 
 }
-.will-reveal.inview { opacity: 1; transform: none; }
+.reveal.inview { 
+  opacity: 1; 
+  transform: none; 
+}
 
-/* Variants */
-[data-reveal="left"]  { transform: translate3d(-16px, 0, 0); }
-[data-reveal="right"] { transform: translate3d( 16px, 0, 0); }
-[data-reveal="up"]    { transform: translate3d(  0, 14px, 0); }
-[data-reveal="fade"]  { transform: none; }
+/* Directional variants */
+.reveal[data-reveal="up"] { transform: translate3d(0, 14px, 0); }
+.reveal[data-reveal="left"] { transform: translate3d(-16px, 0, 0); }
+.reveal[data-reveal="right"] { transform: translate3d(16px, 0, 0); }
+.reveal[data-reveal="fade"] { transform: none; }
 
-@media (prefers-reduced-motion: reduce){
-  .will-reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+/* Stagger helpers */
+[data-stagger] > .reveal { transition-delay: 0s; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { 
+    opacity: 1 !important; 
+    transform: none !important; 
+    transition: none !important; 
+  }
+}
+
+/* ---- Section-specific gentle polish (optional but nice) ---- */
+#pain-points .card, 
+#services .card, 
+#results .pill, 
+#results .card, 
+.testimonials .card {
+  backface-visibility: hidden;
+}
+
+/* ΜΗΝ πειράζεις το hero */
+#hero .hero-content .reveal { 
+  transition-delay: .05s; 
+}
+
+/* Ensure layout never locks scrolling */
+html, 
+body { 
+  overflow-y: auto; 
+  overflow-x: hidden; 
 }
 
 /* ============ D) RESULTS GLOW SCOPED TO METRICS ONLY ============ */
