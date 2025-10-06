@@ -75,7 +75,7 @@ export const Testimonials = ({ locale }: TestimonialsProps) => {
   };
 
   return (
-    <section id="testimonials" className="testimonials py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="testimonials" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           {content[locale].title}
@@ -85,7 +85,7 @@ export const Testimonials = ({ locale }: TestimonialsProps) => {
           {content[locale].testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="card bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
+              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-[hsl(var(--accent-cyan))]/20 rounded-full flex items-center justify-center">
