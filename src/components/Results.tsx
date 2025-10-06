@@ -72,7 +72,7 @@ export const Results = ({ locale }: ResultsProps) => {
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="metrics-wrap max-w-5xl mx-auto space-y-12">
           {content[locale].sections.map((section, index) => (
             <div key={index}>
               <h3 className="text-2xl font-bold mb-6 text-center">{section.title}</h3>
