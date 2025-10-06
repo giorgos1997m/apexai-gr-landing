@@ -449,6 +449,96 @@ body {
   }
 }
 
+/* ============ A) VIDEO + KPIs ALIGNMENT ============ */
+:root { 
+  --wrap: min(1100px, 92vw); 
+}
+
+.video-band, 
+section[id*="act"], 
+section[id*="video"] { 
+  position: relative; 
+}
+
+.video-band .video-wrap,
+.video-band .kpis-wrap,
+section[id*="act"] .video-wrap,
+section[id*="act"] .kpis-wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding-inline: 0;
+}
+
+.video-band .kpis-wrap > * { 
+  margin-inline: 0; 
+}
+
+/* ============ B) TESTIMONIALS FROM LEFT ============ */
+.testimonials .card { 
+  opacity: 0; 
+  transform: translate3d(-18px, 0, 0); 
+  transition: opacity .45s ease, transform .55s ease; 
+  will-change: opacity, transform; 
+}
+
+.testimonials .card.inview { 
+  opacity: 1; 
+  transform: none; 
+}
+
+/* ============ C) RESULTS POP-OUT (smooth) ============ */
+#results .metric-pill, 
+#results .pill, 
+#results .card, 
+#results .stat,
+#results .result-pill {
+  transform: translateZ(0);
+  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease;
+  will-change: transform;
+  border-radius: 14px !important;
+}
+
+@media (hover: hover) {
+  #results .metric-pill:hover, 
+  #results .pill:hover, 
+  #results .card:hover, 
+  #results .stat:hover,
+  #results .result-pill:hover {
+    transform: scale(1.04);
+    box-shadow: 
+      0 0 0 1px rgba(0, 209, 255, 0.28) inset,
+      0 16px 38px rgba(0, 209, 255, 0.16), 
+      0 0 46px rgba(0, 209, 255, 0.20);
+  }
+}
+
+#results .touch-hover { 
+  transform: scale(1.04); 
+  box-shadow: 
+    0 0 0 1px rgba(0, 209, 255, 0.28) inset,
+    0 16px 38px rgba(0, 209, 255, 0.16), 
+    0 0 46px rgba(0, 209, 255, 0.20);
+}
+
+/* ============ D) STEPS INTERACTIVE ============ */
+#how-it-works .card {
+  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease, border-color .18s ease;
+}
+
+@media (hover: hover) {
+  #how-it-works .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .24);
+    border-color: rgba(0, 209, 255, .45);
+  }
+}
+
+#how-it-works .card.touch-hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .24);
+  border-color: rgba(0, 209, 255, .45);
+}
+
 @layer base {
   * {
     @apply border-border;
