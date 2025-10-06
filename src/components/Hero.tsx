@@ -10,7 +10,7 @@ export const Hero = ({ locale }: HeroProps) => {
     gr: {
       title: 'Πάρτε πίσω τον χρόνο σας με',
       titleHighlight: 'AI',
-      subtitle: 'Αυτοματισμοί, chatbots και voice agents που κλείνουν ραντεβού, μαζεύουν leads και κρατούν τους πελάτες να επιστρέφουν.',
+      subtitle: 'Αυτοματισμοί, chatbots και voice agents που κλείνουν ραντεβού, μαζεύουν leads και μετατρέπουν περισσότερους επισκέπτες σε πελάτες που επιστρέφουν.',
       ctaPrimary: 'Ξεκινήστε 14ήμερη Δοκιμή',
       ctaSecondary: 'Δες το σε δράση',
       features: [

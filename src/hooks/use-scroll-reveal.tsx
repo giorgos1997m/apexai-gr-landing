@@ -86,8 +86,43 @@ export const useScrollReveal = () => {
     // Footer stats
     markAndObserve('footer .stat, footer h3, footer p', 'fade', { stagger: true, maxDelay: 0.36 });
 
+    /* ============ B) TESTIMONIALS – CUSTOM STAGGER FROM LEFT ============ */
+    const tcards = document.querySelectorAll('.testimonials .card');
+    const tio = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const cardIndex = Array.from(tcards).indexOf(e.target as Element);
+          (e.target as HTMLElement).style.transitionDelay = `${Math.min(cardIndex * 0.10, 0.6)}s`;
+          e.target.classList.add('inview');
+          tio.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+    tcards.forEach(c => tio.observe(c));
+
+    /* ============ C) RESULTS – TOUCH HOVER EMULATION ============ */
+    const handleResultsTouch = (e: TouchEvent) => {
+      const el = (e.target as Element).closest('#results .metric-pill, #results .pill, #results .card, #results .stat, #results .result-pill');
+      if (!el) return;
+      el.classList.add('touch-hover');
+      setTimeout(() => el.classList.remove('touch-hover'), 200);
+    };
+    document.addEventListener('touchstart', handleResultsTouch, { passive: true });
+
+    /* ============ D) STEPS – TOUCH HOVER EMULATION ============ */
+    const handleStepsTouch = (e: TouchEvent) => {
+      const c = (e.target as Element).closest('#how-it-works .card');
+      if (!c) return;
+      c.classList.add('touch-hover');
+      setTimeout(() => c.classList.remove('touch-hover'), 250);
+    };
+    document.addEventListener('touchstart', handleStepsTouch, { passive: true });
+
     return () => {
       io.disconnect();
+      tio.disconnect();
+      document.removeEventListener('touchstart', handleResultsTouch);
+      document.removeEventListener('touchstart', handleStepsTouch);
     };
   }, []);
 };

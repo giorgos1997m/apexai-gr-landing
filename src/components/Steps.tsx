@@ -64,6 +64,8 @@ export const Steps = ({ locale }: StepsProps) => {
 
   return (
     <section id="steps" className="py-20">
+      {/* ID alias for CSS targeting */}
+      <div id="how-it-works" style={{ position: 'absolute', top: 0 }} />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -108,7 +110,7 @@ export const Steps = ({ locale }: StepsProps) => {
             {content[locale].steps.map((step, index) => (
               <div 
                 key={index}
-                className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
+                className="card bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
                 onMouseEnter={() => setActiveStep(index)}
                 onMouseLeave={() => setActiveStep(null)}
               >
