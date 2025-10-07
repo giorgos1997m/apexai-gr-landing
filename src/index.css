@@ -250,7 +250,6 @@ svg {
 @media (max-width: 768px) {
   .parallax,
   [data-parallax],
-  .spline-hero,
   [class*="parallax"],
   [class*="tilt"] {
     transform: none !important;
@@ -260,7 +259,6 @@ svg {
 
   .spline-hero,
   .spline-canvas {
-    pointer-events: none;
     position: absolute;
     inset: 0;
   }

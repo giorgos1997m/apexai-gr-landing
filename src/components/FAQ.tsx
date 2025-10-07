@@ -94,7 +94,7 @@ export const FAQ = ({ locale }: FAQProps) => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4 mb-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-0 space-y-4 mb-12">
           {content[locale].faqs.map((faq, index) => (
             <div 
               key={index}
