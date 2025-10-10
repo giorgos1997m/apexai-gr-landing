@@ -91,16 +91,20 @@ export const PainPoints = ({ locale }: PainPointsProps) => {
   };
 
   return (
-    <section id="pain-points" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="pain-points" data-animate="items" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+        <h2
+          data-animate-item
+          className="text-4xl md:text-5xl font-bold text-center mb-16"
+        >
           {content[locale].title}
         </h2>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {content[locale].industries.map((industry, index) => (
-            <div 
+            <div
               key={index}
+              data-animate-item
               className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
             >
               <industry.icon className="w-12 h-12 text-[hsl(var(--accent-cyan))] mb-4" strokeWidth={1.5} />

@@ -72,7 +72,7 @@ export const Mission = ({ locale }: MissionProps) => {
   };
 
   return (
-    <section id="mission" ref={sectionRef} className="py-20">
+    <section id="mission" data-animate="container" ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
           {content[locale].title}

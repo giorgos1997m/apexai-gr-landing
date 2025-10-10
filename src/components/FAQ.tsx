@@ -83,9 +83,9 @@ export const FAQ = ({ locale }: FAQProps) => {
   };
 
   return (
-    <section id="faq" className="py-20">
+    <section id="faq" data-animate="items" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div data-animate-item className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {content[locale].title}
           </h2>
@@ -96,8 +96,9 @@ export const FAQ = ({ locale }: FAQProps) => {
 
         <div className="max-w-3xl mx-auto px-4 sm:px-0 space-y-4 mb-12">
           {content[locale].faqs.map((faq, index) => (
-            <div 
+            <div
               key={index}
+              data-animate-item
               className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl overflow-hidden hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
             >
               <button
@@ -120,7 +121,7 @@ export const FAQ = ({ locale }: FAQProps) => {
           ))}
         </div>
 
-        <div className="text-center">
+        <div data-animate-item className="text-center">
           <p className="text-[hsl(var(--text-muted))] mb-4">
             {locale === 'gr' ? 'Έχετε περισσότερες ερωτήσεις; Ας τα πούμε!' : 'Have more questions? Let\'s talk!'}
           </p>
