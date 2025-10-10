@@ -61,9 +61,12 @@ export const Trust = ({ locale }: TrustProps) => {
   };
 
   return (
-    <section id="trust" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section
+      id="trust"
+      className="py-20 bg-[hsl(var(--bg-secondary))]"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal-item">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {content[locale].title}
           </h2>
@@ -74,9 +77,9 @@ export const Trust = ({ locale }: TrustProps) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {content[locale].pillars.map((pillar, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 text-center"
+              className="reveal-item bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 text-center"
             >
               <div className="w-16 h-16 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <pillar.icon className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />

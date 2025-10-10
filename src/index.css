@@ -9,31 +9,31 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* APEX AI Dark Theme */
-    --bg: 210 25% 8%;
-    --bg-secondary: 210 20% 12%;
-    --card: 210 20% 10%;
-    --card-hover: 210 20% 14%;
-    
+    --bg: 210 30% 4%;
+    --bg-secondary: 210 24% 6.5%;
+    --card: 210 26% 6%;
+    --card-hover: 210 26% 8.5%;
+
     --text: 0 0% 100%;
-    --text-muted: 210 10% 70%;
-    --text-dim: 210 10% 50%;
+    --text-muted: 210 12% 72%;
+    --text-dim: 210 12% 48%;
     
     --accent-cyan: 180 100% 50%;
     --accent-blue: 210 100% 60%;
     --accent-green: 142 76% 36%;
     --accent-red: 0 84% 60%;
     
-    --stroke: 210 20% 25%;
+    --stroke: 210 28% 22%;
     --stroke-cyan: 180 100% 50%;
     
     --glow-cyan: 180 100% 50%;
     --glow-blue: 210 100% 60%;
     
     --radius: 0.75rem;
-    --desktop-logo-h: 72px;
+    --desktop-logo-h: 30.6px;
 
     /* Keep for compatibility */
-    --background: 210 25% 8%;
+    --background: 210 28% 5%;
     --foreground: 0 0% 100%;
     --primary: 180 100% 50%;
     --primary-foreground: 210 25% 8%;
@@ -59,13 +59,17 @@ All colors MUST be HSL.
 
   /* Logo sizing */
   .site-logo img {
-    height: 36px; /* Desktop logo size (25% smaller) */
+    height: var(--desktop-logo-h);
     transition: all 0.3s ease;
   }
 
   @media (max-width: 640px) {
+    :root {
+      --desktop-logo-h: 20.4px;
+    }
+
     .site-logo img {
-      height: 24px; /* Keep same size on mobile */
+      height: var(--desktop-logo-h);
     }
     
     /* Mobile font hierarchy - optimized for readability */
@@ -321,47 +325,34 @@ div,
 /* Remove margins that open up hero */
 #hero + section { margin-top: 0 !important; }
 
-/* ============ C) SITE-WIDE REVEALS (discreet) ============ */
-.reveal { 
-  opacity: 0; 
-  transition: opacity .42s ease, transform .50s cubic-bezier(.22,.61,.36,1); 
-  will-change: opacity, transform; 
-}
-.reveal.inview { 
-  opacity: 1; 
-  transform: none; 
+/* ============ C) SITE-WIDE REVEALS ============ */
+.reveal-section,
+.reveal-item {
+  --reveal-duration: 0.4s;
+  --reveal-distance: 22px;
+  transition: opacity var(--reveal-duration) ease, transform var(--reveal-duration) ease;
+  will-change: opacity, transform;
 }
 
-/* Directional variants */
-.reveal[data-reveal="up"] { transform: translate3d(0, 14px, 0); }
-.reveal[data-reveal="left"] { transform: translate3d(-16px, 0, 0); }
-.reveal[data-reveal="right"] { transform: translate3d(16px, 0, 0); }
-.reveal[data-reveal="fade"] { transform: none; }
+.is-reveal-ready.reveal-section,
+.is-reveal-ready.reveal-item {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+}
 
-/* Stagger helpers */
-[data-stagger] > .reveal { transition-delay: 0s; }
+.is-reveal-visible.reveal-section,
+.is-reveal-visible.reveal-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
 
-/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal { 
-    opacity: 1 !important; 
-    transform: none !important; 
-    transition: none !important; 
+  .reveal-section,
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
-}
-
-/* ---- Section-specific gentle polish (optional but nice) ---- */
-#pain-points .card, 
-#services .card, 
-#results .pill, 
-#results .card, 
-.testimonials .card {
-  backface-visibility: hidden;
-}
-
-/* ΜΗΝ πειράζεις το hero */
-#hero .hero-content .reveal { 
-  transition-delay: .05s; 
 }
 
 /* Ensure layout never locks scrolling */
@@ -371,79 +362,83 @@ body {
   overflow-x: hidden; 
 }
 
-/* ============ D) RESULTS GLOW SCOPED TO METRICS ONLY ============ */
-#results { 
-  position: relative; 
-  isolation: isolate; 
+/* ============ D) RESULTS AMBIENT GLOW ============ */
+#results {
+  position: relative;
+  isolation: isolate;
 }
 
-/* Wrapper for metrics grids so title/subtitle don't get glow */
-#results .metrics-wrap { 
-  position: relative; 
-  z-index: 0; 
+#results .metrics-wrap {
+  position: relative;
+  z-index: 0;
 }
 
-/* Glow BEHIND grids only */
 #results .metrics-wrap::before {
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: min(1200px, 96vw);
-  height: 560px;
-  top: -40px;
-  background:
-    radial-gradient(60% 75% at 50% 35%,
-      rgba(0,209,255,.18) 0%,
-      rgba(0,209,255,.10) 36%,
-      rgba(0,209,255,.06) 58%,
-      rgba(0,209,255,0) 78%);
-  filter: blur(38px);
-  z-index: -1;
+  width: min(1100px, 94vw);
+  height: 520px;
+  top: -48px;
+  background: radial-gradient(58% 68% at 50% 18%,
+      hsla(var(--accent-cyan), 0.18) 0%,
+      hsla(var(--accent-cyan), 0.12) 32%,
+      hsla(var(--accent-cyan), 0.08) 52%,
+      rgba(0, 0, 0, 0) 78%);
+  filter: blur(52px);
+  opacity: 0.7;
   pointer-events: none;
+  z-index: -1;
 }
 
-/* Text shadow only on metric section titles */
-#results .metrics-wrap h3 {
-  text-shadow: 0 0 18px rgba(0, 209, 255, 0.35);
-}
-
-/* Neon border/glow only on metrics pills */
 #results .metric-pill,
 #results .pill,
 #results .card,
 #results .stat,
 #results .result-pill {
-  background: #0E141A;
-  border: 1px solid rgba(0,209,255,.35);
+  position: relative;
+  background: linear-gradient(165deg,
+      hsla(var(--card), 0.92) 0%,
+      hsla(var(--card), 0.78) 100%);
+  border: 1px solid hsla(var(--stroke), 0.28);
   box-shadow:
-    0 0 0 1px rgba(0,209,255,.14) inset,
-    0 10px 28px rgba(0,209,255,.10),
-    0 0 36px rgba(0,209,255,.12);
-  border-radius: 12px;
-}
-
-#results .result-pill svg,
-#results .metric-pill svg {
-  filter: drop-shadow(0 0 8px rgba(0, 209, 255, 0.45));
+    0 24px 48px hsla(var(--accent-cyan), 0.14),
+    0 0 32px hsla(var(--accent-cyan), 0.12),
+    inset 0 1px 0 hsla(var(--accent-cyan), 0.1);
+  border-radius: 14px;
+  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease, border-color .18s ease;
+  isolation: isolate;
 }
 
 @media (hover: hover) {
-  #results .result-pill:hover,
-  #results .metric-pill:hover {
-    box-shadow: 0 0 0 1px rgba(0, 209, 255, 0.22) inset,
-      0 14px 34px rgba(0, 209, 255, 0.14), 0 0 42px rgba(0, 209, 255, 0.20);
-    transform: translateY(-1px);
-    transition: all 0.18s ease;
+  #results .metric-pill:hover,
+  #results .pill:hover,
+  #results .card:hover,
+  #results .stat:hover,
+  #results .result-pill:hover {
+    transform: translateY(-3px);
+    border-color: hsla(var(--stroke-cyan), 0.4);
+    box-shadow:
+      0 26px 52px hsla(var(--accent-cyan), 0.16),
+      0 0 36px hsla(var(--accent-cyan), 0.18);
   }
+}
+
+#results .touch-hover {
+  transform: translateY(-3px);
+  border-color: hsla(var(--stroke-cyan), 0.4);
+  box-shadow:
+    0 26px 52px hsla(var(--accent-cyan), 0.16),
+    0 0 36px hsla(var(--accent-cyan), 0.18);
 }
 
 @media (max-width: 640px) {
   #results .metrics-wrap::before {
-    top: -60px;
-    width: 120%;
+    top: -72px;
+    width: 122%;
     height: 420px;
-    filter: blur(36px);
+    filter: blur(48px);
   }
 }
 
@@ -469,68 +464,6 @@ section[id*="act"] .kpis-wrap {
 
 .video-band .kpis-wrap > * { 
   margin-inline: 0; 
-}
-
-/* ============ B) TESTIMONIALS FROM LEFT ============ */
-.testimonials .card { 
-  /* Visible by default - animation is progressive enhancement */
-  opacity: 1; 
-  transform: translate3d(-18px, 0, 0); 
-  transition: opacity .45s ease, transform .55s ease; 
-  will-change: transform; 
-}
-
-/* Only apply transform animation on devices that support it */
-@media (hover: hover) and (pointer: fine) {
-  .testimonials .card:not(.inview) { 
-    opacity: 0.3;
-  }
-}
-
-.testimonials .card.inview { 
-  opacity: 1; 
-  transform: none; 
-}
-
-/* Fallback: ensure visibility on mobile */
-@media (max-width: 768px) {
-  .testimonials .card {
-    opacity: 1 !important;
-  }
-}
-
-/* ============ C) RESULTS POP-OUT (smooth) ============ */
-#results .metric-pill, 
-#results .pill, 
-#results .card, 
-#results .stat,
-#results .result-pill {
-  transform: translateZ(0);
-  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease;
-  will-change: transform;
-  border-radius: 14px !important;
-}
-
-@media (hover: hover) {
-  #results .metric-pill:hover, 
-  #results .pill:hover, 
-  #results .card:hover, 
-  #results .stat:hover,
-  #results .result-pill:hover {
-    transform: scale(1.04);
-    box-shadow: 
-      0 0 0 1px rgba(0, 209, 255, 0.28) inset,
-      0 16px 38px rgba(0, 209, 255, 0.16), 
-      0 0 46px rgba(0, 209, 255, 0.20);
-  }
-}
-
-#results .touch-hover { 
-  transform: scale(1.04); 
-  box-shadow: 
-    0 0 0 1px rgba(0, 209, 255, 0.28) inset,
-    0 16px 38px rgba(0, 209, 255, 0.16), 
-    0 0 46px rgba(0, 209, 255, 0.20);
 }
 
 /* ============ D) STEPS INTERACTIVE ============ */

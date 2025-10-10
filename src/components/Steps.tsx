@@ -63,7 +63,10 @@ export const Steps = ({ locale }: StepsProps) => {
   };
 
   return (
-    <section id="steps" className="py-20">
+    <section
+      id="steps"
+      className="py-20 reveal-section"
+    >
       <div id="how-it-works" className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
