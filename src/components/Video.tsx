@@ -27,7 +27,11 @@ export const Video = ({ locale }: VideoProps) => {
   };
 
   return (
-    <section id="video" className="video-band py-20 bg-[hsl(var(--bg-secondary))]">
+    <section
+      id="video"
+      data-reveal="section"
+      className="video-band py-20 bg-[hsl(var(--bg-secondary))]"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -38,7 +42,7 @@ export const Video = ({ locale }: VideoProps) => {
           </p>
         </div>
 
-        <div className="video-wrap max-w-4xl mx-auto mb-12">
+        <div className="video-wrap max-w-[50rem] mx-auto mb-14 md:mb-16">
           <div className="relative aspect-video bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden border-2 border-[hsl(var(--stroke-cyan))] glow-cyan">
             <div className="absolute inset-0 flex items-center justify-center">
               <button className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan">
@@ -49,7 +53,7 @@ export const Video = ({ locale }: VideoProps) => {
           </div>
         </div>
 
-        <div className="kpis-wrap grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="kpis-wrap grid md:grid-cols-3 gap-6 md:gap-8 max-w-[50rem] mx-auto">
           {content[locale].kpis.map((kpi, index) => (
             <div 
               key={index}

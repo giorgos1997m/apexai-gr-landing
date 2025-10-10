@@ -42,7 +42,11 @@ export const TryIt = ({ locale }: TryItProps) => {
   };
 
   return (
-    <section id="try-it" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section
+      id="try-it"
+      data-reveal="section"
+      className="py-20 bg-[hsl(var(--bg-secondary))]"
+    >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300">

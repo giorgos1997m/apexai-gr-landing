@@ -61,7 +61,11 @@ export const Results = ({ locale }: ResultsProps) => {
   };
 
   return (
-    <section id="results" className="results-section py-20">
+    <section
+      id="results"
+      data-reveal="section"
+      className="results-section py-20"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

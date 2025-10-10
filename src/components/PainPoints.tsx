@@ -91,7 +91,11 @@ export const PainPoints = ({ locale }: PainPointsProps) => {
   };
 
   return (
-    <section id="pain-points" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section
+      id="pain-points"
+      data-reveal="section"
+      className="py-20 bg-[hsl(var(--bg-secondary))]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           {content[locale].title}
