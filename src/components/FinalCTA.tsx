@@ -30,7 +30,7 @@ export const FinalCTA = ({ locale }: FinalCTAProps) => {
   };
 
   return (
-    <section id="final-cta" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="final-cta" data-animate="container" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-br from-[hsl(var(--accent-cyan))]/10 to-[hsl(var(--accent-blue))]/10 border border-[hsl(var(--stroke-cyan))] rounded-3xl p-12">

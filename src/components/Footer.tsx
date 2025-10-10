@@ -60,7 +60,10 @@ export const Footer = ({ locale }: FooterProps) => {
   };
 
   return (
-    <footer className="bg-[hsl(var(--bg-secondary))] border-t border-[hsl(var(--stroke))] py-12">
+    <footer
+      data-animate="container"
+      className="bg-[hsl(var(--bg-secondary))] border-t border-[hsl(var(--stroke))] py-12"
+    >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12 mb-8">
           <div>

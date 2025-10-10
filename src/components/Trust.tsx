@@ -61,7 +61,7 @@ export const Trust = ({ locale }: TrustProps) => {
   };
 
   return (
-    <section id="trust" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="trust" data-animate="container" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

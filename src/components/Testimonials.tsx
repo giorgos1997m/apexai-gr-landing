@@ -75,7 +75,11 @@ export const Testimonials = ({ locale }: TestimonialsProps) => {
   };
 
   return (
-    <section id="testimonials" className="testimonials py-20 bg-[hsl(var(--bg-secondary))]">
+    <section
+      id="testimonials"
+      data-animate="container"
+      className="testimonials py-20 bg-[hsl(var(--bg-secondary))]"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           {content[locale].title}

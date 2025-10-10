@@ -42,10 +42,13 @@ export const TryIt = ({ locale }: TryItProps) => {
   };
 
   return (
-    <section id="try-it" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="try-it" data-animate="items" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300">
+          <div
+            data-animate-item
+            className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
+          >
             <div className="w-16 h-16 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <MessageCircle className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />
             </div>
@@ -67,7 +70,10 @@ export const TryIt = ({ locale }: TryItProps) => {
             </Button>
           </div>
 
-          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300">
+          <div
+            data-animate-item
+            className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
+          >
             <div className="w-16 h-16 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Phone className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />
             </div>

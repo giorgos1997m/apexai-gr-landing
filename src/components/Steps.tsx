@@ -63,9 +63,9 @@ export const Steps = ({ locale }: StepsProps) => {
   };
 
   return (
-    <section id="steps" className="py-20">
+    <section id="steps" data-animate="items" className="py-20">
       <div id="how-it-works" className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div data-animate-item className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {content[locale].title}
           </h2>
@@ -75,7 +75,7 @@ export const Steps = ({ locale }: StepsProps) => {
         </div>
 
         <div className="max-w-5xl mx-auto mb-12">
-          <div className="relative flex items-center justify-between mb-16">
+          <div data-animate-item className="relative flex items-center justify-between mb-16">
             <div 
               className="absolute left-0 right-0 top-1/2 h-1 bg-[hsl(var(--stroke))] -translate-y-1/2"
             />
@@ -106,8 +106,9 @@ export const Steps = ({ locale }: StepsProps) => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {content[locale].steps.map((step, index) => (
-              <div 
+              <div
                 key={index}
+                data-animate-item
                 className="card bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
                 onMouseEnter={() => setActiveStep(index)}
                 onMouseLeave={() => setActiveStep(null)}
@@ -120,7 +121,7 @@ export const Steps = ({ locale }: StepsProps) => {
           </div>
         </div>
 
-        <div className="text-center">
+        <div data-animate-item className="text-center">
           <Button 
             size="lg"
             className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan text-lg px-8 py-6"

@@ -61,9 +61,9 @@ export const Results = ({ locale }: ResultsProps) => {
   };
 
   return (
-    <section id="results" className="results-section py-20">
+    <section id="results" data-animate="items" className="results-section py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div data-animate-item className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {content[locale].title}
           </h2>
@@ -71,15 +71,16 @@ export const Results = ({ locale }: ResultsProps) => {
             {content[locale].subtitle}
           </p>
         </div>
-        
+
         <div className="metrics-wrap max-w-5xl mx-auto space-y-12">
           {content[locale].sections.map((section, index) => (
-            <div key={index}>
+            <div key={index} data-animate-item>
               <h3 className="text-2xl font-bold mb-6 text-center">{section.title}</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {section.results.map((result, idx) => (
-                  <div 
+                  <div
                     key={idx}
+                    data-animate-item
                     className="result-pill flex items-center gap-3 p-4"
                   >
                     <Check className="w-5 h-5 text-[hsl(var(--accent-green))] flex-shrink-0" />
