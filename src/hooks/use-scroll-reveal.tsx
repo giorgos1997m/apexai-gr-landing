@@ -1,48 +1,53 @@
 import { useEffect } from 'react';
 
-const REVEAL_SELECTOR = '[data-reveal]';
-const GROUP_SELECTOR = '[data-reveal-parent]';
-
-const parseNumber = (value: string | undefined, fallback: number) => {
-  if (!value) return fallback;
-  const parsed = Number.parseFloat(value);
-  return Number.isNaN(parsed) ? fallback : parsed;
-};
+const REVEAL_SELECTOR = '.reveal-section, .reveal-item';
+const STAGGER_SELECTOR = '.reveal-item';
+const TRANSITION_STEP = 0.09;
+const TRANSITION_MAX = 0.45;
 
 export const useScrollReveal = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const elements = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
-    if (elements.length === 0) return;
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
+    if (targets.length === 0) return;
 
-    const groups = Array.from(document.querySelectorAll<HTMLElement>(GROUP_SELECTOR));
-    groups.forEach(group => {
-      const step = parseNumber(group.dataset.revealStep, 0.08);
-      const max = parseNumber(group.dataset.revealMax, 0.56);
-      const items = group.querySelectorAll<HTMLElement>(':scope > [data-reveal="item"]');
+    const staggerItems = Array.from(document.querySelectorAll<HTMLElement>(STAGGER_SELECTOR));
+    const staggerGroups = new Map<HTMLElement, HTMLElement[]>();
 
+    staggerItems.forEach(item => {
+      const parent = item.parentElement;
+      if (!parent) return;
+      const list = staggerGroups.get(parent) ?? [];
+      list.push(item);
+      staggerGroups.set(parent, list);
+    });
+
+    staggerGroups.forEach(items => {
       items.forEach((item, index) => {
-        const delay = Math.min(index * step, max);
+        const delay = Math.min(index * TRANSITION_STEP, TRANSITION_MAX);
         item.style.transitionDelay = `${delay}s`;
       });
     });
 
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    elements.forEach(el => {
-      el.classList.add('reveal-ready');
+    targets.forEach(el => {
+      el.classList.add('is-reveal-ready');
     });
 
     const revealImmediately = () => {
-      elements.forEach(el => {
-        el.classList.add('reveal-visible');
-        el.classList.remove('reveal-ready');
-        if (reduceMotionQuery.matches) {
-          el.style.transitionDelay = '0s';
-        }
+      targets.forEach(el => {
+        el.classList.add('is-reveal-visible');
+        el.classList.remove('is-reveal-ready');
+        el.style.transitionDelay = '0s';
       });
     };
+
+    if (reduceMotionQuery.matches) {
+      revealImmediately();
+      return;
+    }
 
     const handleResultsTouch = (event: TouchEvent) => {
       const target = (event.target as HTMLElement).closest(
@@ -63,54 +68,40 @@ export const useScrollReveal = () => {
     document.addEventListener('touchstart', handleResultsTouch, { passive: true });
     document.addEventListener('touchstart', handleStepsTouch, { passive: true });
 
-    let observer: IntersectionObserver | null = null;
-
-    if (reduceMotionQuery.matches) {
-      revealImmediately();
-    } else {
-      observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(
+      entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
 
-          const target = entry.target as HTMLElement;
-          target.classList.add('reveal-visible');
-          target.classList.remove('reveal-ready');
-          target.style.transitionDelay = target.style.transitionDelay || '0s';
-          observer?.unobserve(target);
+          const element = entry.target as HTMLElement;
+          element.classList.add('is-reveal-visible');
+          element.classList.remove('is-reveal-ready');
+          observer.unobserve(element);
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -15% 0px' });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -12% 0px' }
+    );
 
-      elements.forEach(el => observer?.observe(el));
-    }
+    targets.forEach(el => observer.observe(el));
 
     const handlePreferenceChange = (event: MediaQueryListEvent) => {
       if (event.matches) {
-        observer?.disconnect();
-        observer = null;
+        observer.disconnect();
         revealImmediately();
       } else {
-        observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
-            const target = entry.target as HTMLElement;
-            target.classList.add('reveal-visible');
-            target.classList.remove('reveal-ready');
-            target.style.transitionDelay = target.style.transitionDelay || '0s';
-            observer?.unobserve(target);
+        targets
+          .filter(el => !el.classList.contains('is-reveal-visible'))
+          .forEach(el => {
+            el.style.transitionDelay = el.classList.contains('reveal-item') ? el.style.transitionDelay : '0s';
+            observer.observe(el);
           });
-        }, { threshold: 0.12, rootMargin: '0px 0px -15% 0px' });
-
-        elements
-          .filter(el => !el.classList.contains('reveal-visible'))
-          .forEach(el => observer?.observe(el));
       }
     };
 
     reduceMotionQuery.addEventListener('change', handlePreferenceChange);
 
     return () => {
-      observer?.disconnect();
+      observer.disconnect();
       reduceMotionQuery.removeEventListener('change', handlePreferenceChange);
       document.removeEventListener('touchstart', handleResultsTouch);
       document.removeEventListener('touchstart', handleStepsTouch);

@@ -9,21 +9,21 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* APEX AI Dark Theme */
-    --bg: 210 28% 6%;
-    --bg-secondary: 210 22% 9%;
-    --card: 210 24% 8%;
-    --card-hover: 210 24% 11%;
-    
+    --bg: 210 30% 4%;
+    --bg-secondary: 210 24% 6.5%;
+    --card: 210 26% 6%;
+    --card-hover: 210 26% 8.5%;
+
     --text: 0 0% 100%;
-    --text-muted: 210 10% 70%;
-    --text-dim: 210 10% 50%;
+    --text-muted: 210 12% 72%;
+    --text-dim: 210 12% 48%;
     
     --accent-cyan: 180 100% 50%;
     --accent-blue: 210 100% 60%;
     --accent-green: 142 76% 36%;
     --accent-red: 0 84% 60%;
     
-    --stroke: 210 24% 23%;
+    --stroke: 210 28% 22%;
     --stroke-cyan: 180 100% 50%;
     
     --glow-cyan: 180 100% 50%;
@@ -33,7 +33,7 @@ All colors MUST be HSL.
     --desktop-logo-h: 30.6px;
 
     /* Keep for compatibility */
-    --background: 210 25% 8%;
+    --background: 210 28% 5%;
     --foreground: 0 0% 100%;
     --primary: 180 100% 50%;
     --primary-foreground: 210 25% 8%;
@@ -326,25 +326,29 @@ div,
 #hero + section { margin-top: 0 !important; }
 
 /* ============ C) SITE-WIDE REVEALS ============ */
-[data-reveal] {
-  --reveal-duration: 0.42s;
-  --reveal-offset: 22px;
+.reveal-section,
+.reveal-item {
+  --reveal-duration: 0.4s;
+  --reveal-distance: 22px;
   transition: opacity var(--reveal-duration) ease, transform var(--reveal-duration) ease;
   will-change: opacity, transform;
 }
 
-[data-reveal].reveal-ready {
+.is-reveal-ready.reveal-section,
+.is-reveal-ready.reveal-item {
   opacity: 0;
-  transform: translate3d(0, var(--reveal-offset), 0);
+  transform: translate3d(0, var(--reveal-distance), 0);
 }
 
-[data-reveal].reveal-visible {
+.is-reveal-visible.reveal-section,
+.is-reveal-visible.reveal-item {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  .reveal-section,
+  .reveal-item {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -394,16 +398,16 @@ body {
 #results .stat,
 #results .result-pill {
   position: relative;
-  background: linear-gradient(160deg,
-      hsla(var(--card), 0.95) 0%,
-      hsla(var(--card), 0.82) 100%);
-  border: 1px solid hsla(var(--stroke), 0.38);
+  background: linear-gradient(165deg,
+      hsla(var(--card), 0.92) 0%,
+      hsla(var(--card), 0.78) 100%);
+  border: 1px solid hsla(var(--stroke), 0.28);
   box-shadow:
-    0 18px 36px rgba(4, 12, 20, 0.55),
-    0 0 58px hsla(var(--accent-cyan), 0.16),
-    0 0 0 1px hsla(var(--accent-cyan), 0.12) inset;
+    0 24px 48px hsla(var(--accent-cyan), 0.14),
+    0 0 32px hsla(var(--accent-cyan), 0.12),
+    inset 0 1px 0 hsla(var(--accent-cyan), 0.1);
   border-radius: 14px;
-  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease;
+  transition: transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .18s ease, border-color .18s ease;
   isolation: isolate;
 }
 
@@ -414,19 +418,19 @@ body {
   #results .stat:hover,
   #results .result-pill:hover {
     transform: translateY(-3px);
+    border-color: hsla(var(--stroke-cyan), 0.4);
     box-shadow:
-      0 20px 40px rgba(4, 12, 20, 0.6),
-      0 0 70px hsla(var(--accent-cyan), 0.2),
-      0 0 0 1px hsla(var(--accent-cyan), 0.18) inset;
+      0 26px 52px hsla(var(--accent-cyan), 0.16),
+      0 0 36px hsla(var(--accent-cyan), 0.18);
   }
 }
 
 #results .touch-hover {
   transform: translateY(-3px);
+  border-color: hsla(var(--stroke-cyan), 0.4);
   box-shadow:
-    0 20px 40px rgba(4, 12, 20, 0.6),
-    0 0 70px hsla(var(--accent-cyan), 0.2),
-    0 0 0 1px hsla(var(--accent-cyan), 0.18) inset;
+    0 26px 52px hsla(var(--accent-cyan), 0.16),
+    0 0 36px hsla(var(--accent-cyan), 0.18);
 }
 
 @media (max-width: 640px) {

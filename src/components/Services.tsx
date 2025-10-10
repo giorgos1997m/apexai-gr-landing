@@ -89,11 +89,10 @@ export const Services = ({ locale }: ServicesProps) => {
   return (
     <section
       id="services"
-      data-reveal="section"
       className="py-20"
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal-item">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {content[locale].title}
           </h2>
@@ -101,12 +100,12 @@ export const Services = ({ locale }: ServicesProps) => {
             {content[locale].subtitle}
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {content[locale].services.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 glow-cyan-sm hover:glow-cyan"
+              className="reveal-item bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 glow-cyan-sm hover:glow-cyan"
             >
               <div className="bg-[hsl(var(--accent-cyan))]/20 border-2 border-[hsl(var(--accent-cyan))]/40 rounded-full w-20 h-20 flex items-center justify-center mb-6">
                 <service.icon className="w-10 h-10 text-[hsl(var(--accent-cyan))]" strokeWidth={2} />

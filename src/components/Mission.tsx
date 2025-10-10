@@ -75,8 +75,7 @@ export const Mission = ({ locale }: MissionProps) => {
     <section
       id="mission"
       ref={sectionRef}
-      data-reveal="section"
-      className="py-20"
+      className="py-20 reveal-section"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">

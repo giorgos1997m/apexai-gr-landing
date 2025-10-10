@@ -32,8 +32,7 @@ export const FinalCTA = ({ locale }: FinalCTAProps) => {
   return (
     <section
       id="final-cta"
-      data-reveal="section"
-      className="py-20 bg-[hsl(var(--bg-secondary))]"
+      className="py-20 bg-[hsl(var(--bg-secondary))] reveal-section"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">

@@ -85,8 +85,7 @@ export const FAQ = ({ locale }: FAQProps) => {
   return (
     <section
       id="faq"
-      data-reveal="section"
-      className="py-20"
+      className="py-20 reveal-section"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
