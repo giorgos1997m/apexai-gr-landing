@@ -22,7 +22,7 @@ export const Footer = ({ locale }: FooterProps) => {
         { label: 'FAQ', href: '#faq' },
       ],
       email: 'hello@apexai.gr',
-      phone: '+30 210 123 4567',
+      phone: '+30 6984728742',
       address: 'Αθήνα, Ελλάδα',
     },
     en: {
@@ -37,7 +37,7 @@ export const Footer = ({ locale }: FooterProps) => {
         { label: 'FAQ', href: '#faq' },
       ],
       email: 'hello@apexai.gr',
-      phone: '+30 210 123 4567',
+      phone: '+30 6984728742',
       address: 'Athens, Greece',
     },
   };
