@@ -1,4 +1,4 @@
-import { Shield, Clock, Zap, Users } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface HeroProps {
@@ -8,100 +8,98 @@ interface HeroProps {
 export const Hero = ({ locale }: HeroProps) => {
   const content = {
     gr: {
+      microTagline: 'AI Automation for Professionals in Greece 🇬🇷',
       title: 'Πάρτε πίσω τον χρόνο σας με',
-      titleHighlight: 'AI',
-      subtitle: 'Αυτοματισμοί, chatbots και voice agents που κλείνουν ραντεβού, μαζεύουν leads και κάνουν τους πελάτες να επιστρέφουν.',
-      ctaPrimary: 'Ξεκινήστε 14ήμερη Δοκιμή',
-      ctaSecondary: 'Δες το σε δράση',
-      features: [
-        { icon: Shield, line1: 'Ασφάλεια με τα', line2: 'δεδομένα σας' },
-        { icon: Clock, line1: '24/7', line2: '' },
-        { icon: Zap, line1: 'Γρήγορο', line2: 'setup' },
-        { icon: Users, line1: 'Ελάχιστη', line2: 'δέσμευση' },
-      ],
+      titleHighlight: 'Αυτοματισμούς AI.',
+      subtitle: 'Το APEX AI δημιουργεί Chatbots & Voice Agents που απαντούν σε πελάτες, κλείνουν ραντεβού και φέρνουν leads 24/7 — ενώ εσείς εργάζεστε ή ξεκουράζεστε.',
+      ctaPrimary: '🚀 Δοκιμή 14 Ημερών — Χωρίς Κάρτα',
+      ctaSecondary: '📞 Κλείστε Στρατηγική Κλήση',
+      trustTag: 'GDPR-Compliant • 100% Αυτόνομο • Ελληνική Υποστήριξη',
     },
     en: {
-      title: 'Take back your time with',
-      titleHighlight: 'AI',
-      subtitle: 'Automations, chatbots and voice agents that close appointments, collect leads and keep customers coming back.',
-      ctaPrimary: 'Start 14-day Trial',
-      ctaSecondary: 'See it in Action',
-      features: [
-        { icon: Shield, line1: 'Data', line2: 'Security' },
-        { icon: Clock, line1: '24/7', line2: '' },
-        { icon: Zap, line1: 'Fast', line2: 'Setup' },
-        { icon: Users, line1: 'Minimal', line2: 'Commitment' },
-      ],
+      microTagline: 'AI Automation for Professionals in Greece 🇬🇧',
+      title: 'Get Your Time Back with',
+      titleHighlight: 'AI Automation.',
+      subtitle: 'APEX AI builds Chatbots & Voice Agents that reply, book, and convert leads 24/7 — so you can focus on what matters.',
+      ctaPrimary: '🚀 Start 14-Day Free Trial — No Card Required',
+      ctaSecondary: '📞 Book a Strategy Call',
+      trustTag: 'GDPR-Compliant • Fully Automated • Greek Support',
     },
   };
 
-  const handleSecondaryClick = () => {
-    const tryItSection = document.querySelector('#try-it');
-    if (tryItSection) {
-      const elementTop = tryItSection.getBoundingClientRect().top + window.pageYOffset;
-      const elementHeight = tryItSection.getBoundingClientRect().height;
-      const windowHeight = window.innerHeight;
-      const scrollToY = elementTop - (windowHeight / 2) + (elementHeight / 2);
-      window.scrollTo({ top: scrollToY, behavior: 'smooth' });
-    }
+  const handleScrollDown = () => {
+    window.scrollTo({ 
+      top: window.innerHeight, 
+      behavior: 'smooth' 
+    });
   };
 
   return (
-    <section id="hero" className="hero-section relative overflow-hidden">
-      <iframe
-        src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
-        className="spline-hero absolute inset-0 w-full h-full"
-        style={{ border: 'none' }}
-      />
+    <section id="hero" className="hero-section relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F14] to-[#02060C]" />
       
-      <div className="hero-content relative container mx-auto px-4 py-20 pointer-events-none">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 pointer-events-auto">
-            {content[locale].title}{' '}
-            <span className="text-gradient-cyan">{content[locale].titleHighlight}.</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-[hsl(var(--text-muted))] mb-12 max-w-3xl mx-auto pointer-events-auto">
-            {content[locale].subtitle}
+      {/* 3D Robot Visual - RIGHT Column */}
+      <div className="absolute inset-0 md:left-1/2 md:w-1/2">
+        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/20 via-transparent to-transparent opacity-40" />
+        <iframe
+          src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
+          className="spline-hero w-full h-full hero-visual"
+          style={{ border: 'none' }}
+        />
+      </div>
+      
+      {/* Content - LEFT Column */}
+      <div className="hero-content relative container mx-auto px-4 py-20 md:py-32 z-10">
+        <div className="max-w-2xl md:pr-8">
+          {/* Micro Tagline */}
+          <p className="hero-tagline text-sm font-medium text-[hsl(var(--accent-cyan))] mb-4 tracking-wide uppercase opacity-0">
+            {content[locale].microTagline}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 pointer-events-auto px-4">
+          {/* Main Title */}
+          <h1 className="hero-title font-display text-h1 md:text-[3rem] lg:text-[3.5rem] font-bold mb-6 leading-tight opacity-0">
+            {content[locale].title}{' '}
+            <span className="text-gradient-cyan">{content[locale].titleHighlight}</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <h2 className="hero-subtitle text-h5 md:text-h4 text-[hsl(var(--text-muted))] mb-12 leading-relaxed opacity-0">
+            {content[locale].subtitle}
+          </h2>
+          
+          {/* CTAs */}
+          <div className="hero-ctas flex flex-col sm:flex-row gap-4 mb-8 opacity-0">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan text-lg px-8 py-6 w-full sm:w-auto"
+              className="hero-cta-primary bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] text-white hover:scale-105 transition-all duration-300 text-base font-semibold px-6 py-6 rounded-2xl shadow-lg hover:shadow-[0_0_30px_rgba(0,209,255,0.4)] w-full sm:w-auto"
             >
               {content[locale].ctaPrimary}
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              onClick={handleSecondaryClick}
-              className="border-[hsl(var(--stroke-cyan))] text-[hsl(var(--accent-cyan))] hover:bg-[hsl(var(--card))] text-lg px-8 py-6 pointer-events-auto w-full sm:w-auto"
+              className="hero-cta-secondary bg-transparent border-[1.5px] border-white text-white hover:bg-gradient-to-r hover:from-[hsl(var(--accent-cyan))] hover:to-[#0099CC] hover:border-transparent transition-all duration-300 text-base font-semibold px-6 py-6 rounded-2xl w-full sm:w-auto"
             >
               {content[locale].ctaSecondary}
             </Button>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto pointer-events-auto">
-            {content[locale].features.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-[hsl(var(--card))]/50 backdrop-blur-sm border border-[hsl(var(--stroke))] rounded-lg p-3 hover:border-[hsl(var(--stroke-cyan))] transition-colors"
-              >
-                <feature.icon className="w-5 h-5 text-[hsl(var(--accent-cyan))] mx-auto mb-1.5" />
-                <p className="text-xs text-[hsl(var(--text))] font-medium leading-tight text-center">
-                  {feature.line1}
-                </p>
-                {feature.line2 && (
-                  <p className="text-xs text-[hsl(var(--text))] font-medium leading-tight text-center">
-                    {feature.line2}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
+          {/* Trust Tag */}
+          <p className="hero-trust text-sm text-[hsl(var(--text-muted))] opacity-0">
+            {content[locale].trustTag}
+          </p>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <button 
+        onClick={handleScrollDown}
+        className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-[hsl(var(--accent-cyan))] animate-bounce cursor-pointer bg-transparent border-none opacity-0"
+        aria-label="Scroll down"
+      >
+        <ChevronDown className="w-8 h-8" />
+      </button>
     </section>
   );
 };
