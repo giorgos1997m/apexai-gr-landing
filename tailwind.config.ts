@@ -13,6 +13,31 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        'xs': 'var(--spacing-xs)',
+        'sm': 'var(--spacing-sm)',
+        'md': 'var(--spacing-md)',
+        'lg': 'var(--spacing-lg)',
+        'xl': 'var(--spacing-xl)',
+        '2xl': 'var(--spacing-2xl)',
+        '3xl': 'var(--spacing-3xl)',
+      },
+      fontFamily: {
+        sans: ['General Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Satoshi', 'General Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'display': '2.488rem',
+        'h1': '2.488rem',
+        'h2': '2.074rem',
+        'h3': '1.728rem',
+        'h4': '1.44rem',
+        'h5': '1.2rem',
+        'h6': '1rem',
+        'body': '1rem',
+        'small': '0.889rem',
+        'tiny': '0.790rem',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

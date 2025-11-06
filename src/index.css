@@ -8,38 +8,74 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* APEX AI Dark Theme */
-    --bg: 210 25% 8%;
-    --bg-secondary: 210 20% 12%;
-    --card: 210 20% 10%;
-    --card-hover: 210 20% 14%;
+    /* APEX AI Design System - 60/30/10 Rule */
     
-    --text: 0 0% 100%;
-    --text-muted: 210 10% 70%;
-    --text-dim: 210 10% 50%;
+    /* Primary (60%) - Neutral Dark Background */
+    --bg: 225 25% 5%;           /* #0A0D1A - Main background */
+    --bg-secondary: 225 20% 8%; /* Slightly lighter for sections */
+    --card: 225 18% 10%;        /* Cards background */
+    --card-hover: 225 18% 14%;  /* Card hover state */
     
-    --accent-cyan: 180 100% 50%;
-    --accent-blue: 210 100% 60%;
-    --accent-green: 142 76% 36%;
-    --accent-red: 0 84% 60%;
+    /* Secondary (30%) - Grey-Blue for Cards/Sections */
+    --surface: 220 15% 18%;     /* Secondary surface */
+    --surface-elevated: 220 15% 22%; /* Elevated elements */
     
-    --stroke: 210 20% 25%;
-    --stroke-cyan: 180 100% 50%;
+    /* Text Colors - High Contrast */
+    --text: 0 0% 100%;          /* Pure white for primary text */
+    --text-muted: 220 10% 75%;  /* Light grey for secondary text */
+    --text-dim: 220 10% 55%;    /* Dimmed text */
     
+    /* Accent (10%) - Vibrant Cyan-Turquoise */
+    --accent-cyan: 180 100% 50%;    /* Primary accent - bright cyan */
+    --accent-cyan-dark: 180 100% 40%; /* Darker cyan for hover */
+    --accent-cyan-light: 180 100% 65%; /* Lighter cyan for highlights */
+    --accent-blue: 200 100% 55%;    /* Secondary accent - blue */
+    --accent-green: 142 76% 36%;    /* Success states */
+    --accent-red: 0 84% 60%;        /* Error states */
+    
+    /* Strokes & Borders */
+    --stroke: 220 15% 25%;      /* Subtle borders */
+    --stroke-cyan: 180 100% 50%; /* Accent borders */
+    --stroke-elevated: 220 15% 30%; /* Elevated borders */
+    
+    /* Glows & Effects */
     --glow-cyan: 180 100% 50%;
-    --glow-blue: 210 100% 60%;
+    --glow-cyan-soft: 180 80% 60%;
+    --glow-blue: 200 100% 55%;
     
+    /* Spacing System (8px multiples) */
+    --spacing-unit: 8px;
+    --spacing-xs: calc(var(--spacing-unit) * 1);   /* 8px */
+    --spacing-sm: calc(var(--spacing-unit) * 2);   /* 16px */
+    --spacing-md: calc(var(--spacing-unit) * 3);   /* 24px */
+    --spacing-lg: calc(var(--spacing-unit) * 4);   /* 32px */
+    --spacing-xl: calc(var(--spacing-unit) * 6);   /* 48px */
+    --spacing-2xl: calc(var(--spacing-unit) * 8);  /* 64px */
+    --spacing-3xl: calc(var(--spacing-unit) * 12); /* 96px */
+    
+    /* Border Radius */
     --radius: 0.75rem;
     --desktop-logo-h: 72px;
 
-    /* Keep for compatibility */
-    --background: 210 25% 8%;
+    /* Compatibility tokens (shadcn/ui) */
+    --background: 225 25% 5%;
     --foreground: 0 0% 100%;
     --primary: 180 100% 50%;
-    --primary-foreground: 210 25% 8%;
-    --border: 210 20% 25%;
-    --input: 210 20% 25%;
+    --primary-foreground: 225 25% 5%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 75%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 225 25% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
     --ring: 180 100% 50%;
+    --popover: 225 18% 10%;
+    --popover-foreground: 0 0% 100%;
+    --card-foreground: 0 0% 100%;
   }
 }
 
@@ -50,7 +86,71 @@ All colors MUST be HSL.
 
   body {
     @apply bg-[hsl(var(--bg))] text-[hsl(var(--text))];
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 18px; /* Base size */
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  /* Typography Scale - Major Third (1.25) */
+  h1, .text-display {
+    font-family: 'Satoshi', 'General Sans', sans-serif;
+    font-size: 2.488rem; /* ~44.8px */
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    font-family: 'Satoshi', 'General Sans', sans-serif;
+    font-size: 2.074rem; /* ~37.3px */
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  
+  h3 {
+    font-family: 'Satoshi', 'General Sans', sans-serif;
+    font-size: 1.728rem; /* ~31px */
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  h4 {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.44rem; /* ~25.9px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  h5 {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.2rem; /* ~21.6px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  h6 {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1rem; /* 18px */
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  
+  p, .text-body {
+    font-size: 1rem; /* 18px */
+    line-height: 1.5;
+  }
+  
+  .text-small {
+    font-size: 0.889rem; /* ~16px */
+    line-height: 1.5;
+  }
+  
+  .text-tiny {
+    font-size: 0.790rem; /* ~14px */
+    line-height: 1.4;
   }
 
   html {
