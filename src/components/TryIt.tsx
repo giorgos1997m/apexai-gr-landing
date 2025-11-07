@@ -1,4 +1,4 @@
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageSquare, Phone } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface TryItProps {
@@ -8,88 +8,148 @@ interface TryItProps {
 export const TryIt = ({ locale }: TryItProps) => {
   const content = {
     gr: {
+      title: 'Δοκιμάστε τους Agents μας σε Πραγματικό Χρόνο.',
+      subtitle: 'Δείτε πώς το APEX AI συνομιλεί με πελάτες, απαντά σε ερωτήσεις και κλείνει ραντεβού.',
+      cta: '🧠 Θέλω να το δοκιμάσω στη δική μου επιχείρηση!',
       chatbot: {
         title: 'AI Chatbot Demo',
-        embed: 'Interactive chatbot demo will be embedded here',
-        userMessage: 'Χρήστης: "Θέλω να κλείσω ένα ραντεβού"',
-        aiResponse: 'AI: "Μπορώ να σας βοηθήσω να κλείσετε ραντεβού. Για ποια υπηρεσία ενδιαφέρεστε;"',
-        button: 'Δοκιμάστε το Chatbot',
+        description: 'Δοκιμάστε μια συνομιλία με το AI μας',
+        example: [
+          { role: 'user', text: 'Θέλω να κλείσω ραντεβού' },
+          { role: 'bot', text: 'Ευχαρίστως! Για ποια ημερομηνία;' },
+          { role: 'user', text: 'Τρίτη 10:00' },
+          { role: 'bot', text: 'Τέλεια! Σας κλείνω για Τρίτη στις 10:00. Μπορώ να έχω το όνομά σας;' },
+        ],
       },
       voice: {
         title: 'AI Voice Agent Demo',
-        embed: 'Voice agent demo will be embedded here',
-        userMessage: 'Χρήστης: "Γεια σας, θα ήθελα να κλείσω ένα ραντεβού…"',
-        aiResponse: 'AI: "Βεβαίως! Αφήστε με να ελέγξω τη διαθεσιμότητα…"',
-        button: 'Δοκιμάστε τον Voice Agent',
+        description: 'Ακούστε πώς μιλά το AI μας στο τηλέφωνο',
+        example: [
+          { role: 'agent', text: '📞 Καλημέρα! Πώς μπορώ να βοηθήσω;' },
+          { role: 'caller', text: 'Θέλω ραντεβού για Τρίτη' },
+          { role: 'agent', text: '📞 Ωραία! Τι ώρα σας βολεύει;' },
+        ],
+        cta: '▶️ Ακούστε Voice Demo',
       },
     },
     en: {
+      title: 'Try Our Agents in Real Time.',
+      subtitle: 'See how APEX AI talks to customers, answers questions, and books appointments.',
+      cta: '🧠 I want to try this for my business!',
       chatbot: {
         title: 'AI Chatbot Demo',
-        embed: 'Interactive chatbot demo will be embedded here',
-        userMessage: 'User: "I need to book an appointment"',
-        aiResponse: 'AI: "I\'d be happy to help you schedule an appointment. What service are you looking for?"',
-        button: 'Try Chatbot Demo',
+        description: 'Try a conversation with our AI',
+        example: [
+          { role: 'user', text: 'I want to book an appointment' },
+          { role: 'bot', text: 'Sure! What date works for you?' },
+          { role: 'user', text: 'Tuesday 10:00 AM' },
+          { role: 'bot', text: 'Perfect! I\'ll book you for Tuesday at 10:00. May I have your name?' },
+        ],
       },
       voice: {
         title: 'AI Voice Agent Demo',
-        embed: 'Voice agent demo will be embedded here',
-        userMessage: 'User: "Hello, I\'m calling to schedule a consultation..."',
-        aiResponse: 'AI: "Of course! Let me check our availability for you..."',
-        button: 'Try Voice Agent Demo',
+        description: 'Hear how our AI sounds on the phone',
+        example: [
+          { role: 'agent', text: '📞 Good morning! How can I help?' },
+          { role: 'caller', text: 'I need an appointment for Tuesday' },
+          { role: 'agent', text: '📞 Great! What time works for you?' },
+        ],
+        cta: '▶️ Listen to Voice Demo',
       },
     },
   };
 
   return (
-    <section id="try-it" className="py-20 bg-[hsl(var(--bg-secondary))]">
+    <section id="demo" className="py-20 bg-[hsl(var(--bg-secondary))]">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300">
-            <div className="w-16 h-16 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <MessageCircle className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            {content[locale].title}
+          </h2>
+          <p className="text-xl text-[hsl(var(--text-muted))] max-w-2xl mx-auto">
+            {content[locale].subtitle}
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+          {/* Chatbot Demo */}
+          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--accent-cyan))] hover:shadow-[0_0_30px_rgba(0,209,255,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <MessageSquare className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />
+              <h3 className="text-2xl font-bold">{content[locale].chatbot.title}</h3>
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-center">{content[locale].chatbot.title}</h3>
             
-            <div className="bg-[hsl(var(--bg))]/50 border border-[hsl(var(--stroke))] rounded-lg p-6 mb-6 min-h-[200px] flex flex-col justify-center">
-              <div className="w-12 h-12 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="w-6 h-6 text-[hsl(var(--accent-cyan))]" />
-              </div>
-              <p className="text-[hsl(var(--text-muted))] text-center mb-4 italic">{content[locale].chatbot.embed}</p>
-              <div className="space-y-3 text-left">
-                <p className="text-[hsl(var(--text))] text-sm">{content[locale].chatbot.userMessage}</p>
-                <p className="text-[hsl(var(--accent-cyan))] text-sm">{content[locale].chatbot.aiResponse}</p>
-              </div>
+            <p className="text-[hsl(var(--text-muted))] mb-6">
+              {content[locale].chatbot.description}
+            </p>
+            
+            <div className="bg-[hsl(var(--bg))] rounded-lg p-4 space-y-3 min-h-[240px]">
+              {content[locale].chatbot.example.map((msg, idx) => (
+                <div 
+                  key={idx}
+                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                  style={{ animationDelay: `${idx * 0.2}s` }}
+                >
+                  <div 
+                    className={`rounded-lg px-4 py-2 max-w-[80%] ${
+                      msg.role === 'user' 
+                        ? 'bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] text-white' 
+                        : 'bg-[hsl(var(--card))] text-[hsl(var(--text))] border border-[hsl(var(--stroke))]'
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
             </div>
-            
-            <Button className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 w-full">
-              {content[locale].chatbot.button}
-            </Button>
           </div>
 
-          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300">
-            <div className="w-16 h-16 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          {/* Voice Agent Demo */}
+          <div className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--accent-cyan))] hover:shadow-[0_0_30px_rgba(0,209,255,0.15)] transition-all duration-300">
+            <div className="flex items-center gap-3 mb-4">
               <Phone className="w-8 h-8 text-[hsl(var(--accent-cyan))]" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-center">{content[locale].voice.title}</h3>
-            
-            <div className="bg-[hsl(var(--bg))]/50 border border-[hsl(var(--stroke))] rounded-lg p-6 mb-6 min-h-[200px] flex flex-col justify-center">
-              <div className="w-12 h-12 bg-[hsl(var(--accent-cyan))]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="w-6 h-6 text-[hsl(var(--accent-cyan))]" />
-              </div>
-              <p className="text-[hsl(var(--text-muted))] text-center mb-4 italic">{content[locale].voice.embed}</p>
-              <div className="space-y-3 text-left">
-                <p className="text-[hsl(var(--text))] text-sm">{content[locale].voice.userMessage}</p>
-                <p className="text-[hsl(var(--accent-cyan))] text-sm">{content[locale].voice.aiResponse}</p>
-              </div>
+              <h3 className="text-2xl font-bold">{content[locale].voice.title}</h3>
             </div>
             
-            <Button className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 w-full">
-              {content[locale].voice.button}
+            <p className="text-[hsl(var(--text-muted))] mb-6">
+              {content[locale].voice.description}
+            </p>
+            
+            <div className="bg-[hsl(var(--bg))] rounded-lg p-4 mb-6 space-y-3 min-h-[240px] flex flex-col justify-center">
+              {content[locale].voice.example.map((msg, idx) => (
+                <div 
+                  key={idx}
+                  className={`flex ${msg.role === 'caller' ? 'justify-end' : 'justify-start'} animate-fade-in`}
+                  style={{ animationDelay: `${idx * 0.3}s` }}
+                >
+                  <div 
+                    className={`rounded-lg px-4 py-2 max-w-[80%] ${
+                      msg.role === 'caller' 
+                        ? 'bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] text-white' 
+                        : 'bg-[hsl(var(--card))] text-[hsl(var(--text))] border border-[hsl(var(--stroke))]'
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <Button className="w-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform">
+              {content[locale].voice.cta}
             </Button>
           </div>
+        </div>
+
+        <div className="text-center">
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform duration-300"
+          >
+            {content[locale].cta}
+          </Button>
         </div>
       </div>
     </section>
   );
-};
+}

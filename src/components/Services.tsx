@@ -1,4 +1,5 @@
-import { Zap, MessageCircle, Phone, Check } from 'lucide-react';
+import { Stethoscope, Scale, Wrench, Scissors } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface ServicesProps {
   locale: 'gr' | 'en';
@@ -7,87 +8,67 @@ interface ServicesProps {
 export const Services = ({ locale }: ServicesProps) => {
   const content = {
     gr: {
-      title: 'Υπηρεσίες',
-      subtitle: 'Τρεις βασικές λύσεις AI που μεταμορφώνουν την επιχείρησή σας',
-      services: [
+      title: 'Λύσεις για Κάθε Επαγγελματία.',
+      subtitle: 'Αυτοματισμοί σχεδιασμένοι για κάθε επαγγελματία που θέλει περισσότερα leads και λιγότερες χαμένες κλήσεις.',
+      cta: 'Δείτε πώς λειτουργεί ➜',
+      professionals: [
         {
-          icon: Zap,
-          title: 'Automations',
-          features: [
-            'Αυτόματη αποστολή email/SMS',
-            'Αυτόματη συλλογή reviews',
-            'Αυτόματος συγχρονισμός με CRM',
-            'Full Αυτοματοποιημένο Website',
-            'Loyalty Campaigns',
-          ],
-          footer: 'λιγότερες χειροκίνητες δουλειές · συνέπεια · καλύτερη εμπειρία πελάτη',
+          icon: Stethoscope,
+          title: 'Γιατροί & Οδοντίατροι',
+          description: 'Αυτόματη διαχείριση ραντεβού & υπενθυμίσεων.',
         },
         {
-          icon: MessageCircle,
-          title: 'AI Chatbots',
-          features: [
-            'Προ-διαλογή πελατών 24/7',
-            'Απαντήσεις σε FAQs αμέσως',
-            'Συλλογή στοιχείων αυτόματα',
-          ],
-          footer: 'άμεση εξυπηρέτηση · περισσότερα qualified leads · μείωση χειροκίνητων εργασιών',
+          icon: Scale,
+          title: 'Δικηγόροι & Λογιστές',
+          description: 'Άμεσες απαντήσεις σε πελάτες, χωρίς να σηκώνετε τηλέφωνο.',
         },
         {
-          icon: Phone,
-          title: 'AI Voice Agents',
-          features: [
-            'Απαντούν 24/7 στο τηλέφωνο',
-            'Κλείσιμο ραντεβού αυτόματα',
-            'Qualified routing σε εσάς',
-            'Γρήγορα follow-ups',
-          ],
-          footer: 'μηδέν χαμένες κλήσεις · αυτόματα follow-ups · επαγγελματική εικόνα',
+          icon: Wrench,
+          title: 'Τεχνικοί & Υπηρεσίες',
+          description: 'Chatbots που κλείνουν ραντεβού ακόμα και εκτός ωραρίου.',
+        },
+        {
+          icon: Scissors,
+          title: 'Κομμωτήρια & Studio',
+          description: 'Voice Agents που επιβεβαιώνουν ραντεβού χωρίς καμία κλήση.',
         },
       ],
     },
     en: {
-      title: 'Services',
-      subtitle: 'Three core AI solutions that transform your business',
-      services: [
+      title: 'Solutions for Every Professional.',
+      subtitle: 'Automation designed for professionals who want more leads and fewer missed calls.',
+      cta: 'See How It Works ➜',
+      professionals: [
         {
-          icon: Zap,
-          title: 'Automations',
-          features: [
-            'Automatic email/SMS sending',
-            'Automatic review collection',
-            'Automatic CRM sync',
-            'Full Automated Website',
-            'Loyalty Campaigns',
-          ],
-          footer: 'fewer manual tasks · consistency · better customer experience',
+          icon: Stethoscope,
+          title: 'Doctors & Dentists',
+          description: 'Automatic appointment management & reminders.',
         },
         {
-          icon: MessageCircle,
-          title: 'AI Chatbots',
-          features: [
-            'Pre-screen customers 24/7',
-            'Answer FAQs instantly',
-            'Collect information automatically',
-          ],
-          footer: 'instant service · more qualified leads · reduced manual work',
+          icon: Scale,
+          title: 'Lawyers & Accountants',
+          description: 'Instant answers to clients without picking up the phone.',
         },
         {
-          icon: Phone,
-          title: 'AI Voice Agents',
-          features: [
-            'Answer phone 24/7',
-            'Book appointments automatically',
-            'Qualified routing to you',
-            'Fast follow-ups',
-          ],
-          footer: 'zero missed calls · automatic follow-ups · professional image',
+          icon: Wrench,
+          title: 'Technicians & Services',
+          description: 'Chatbots that book appointments even after hours.',
+        },
+        {
+          icon: Scissors,
+          title: 'Salons & Studios',
+          description: 'Voice Agents that confirm appointments without any calls.',
         },
       ],
     },
   };
 
+  const scrollToDemo = () => {
+    document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="services" className="py-20">
+    <section id="professionals" className="py-20 bg-[hsl(var(--bg))]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -98,31 +79,29 @@ export const Services = ({ locale }: ServicesProps) => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
-          {content[locale].services.map((service, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {content[locale].professionals.map((prof, index) => (
             <div 
               key={index}
-              className="bg-[hsl(var(--card))] border-2 border-[hsl(var(--stroke-cyan))]/40 rounded-xl p-8 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300 glow-cyan-sm hover:glow-cyan"
+              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--accent-cyan))] hover:shadow-[0_0_30px_rgba(0,209,255,0.15)] transition-all duration-300"
             >
-              <div className="bg-[hsl(var(--accent-cyan))]/20 border-2 border-[hsl(var(--accent-cyan))]/40 rounded-full w-20 h-20 flex items-center justify-center mb-6">
-                <service.icon className="w-10 h-10 text-[hsl(var(--accent-cyan))]" strokeWidth={2} />
-              </div>
-              <h3 className="text-2xl font-bold mb-6 text-[hsl(var(--text))]">{service.title}</h3>
-              <ul className="space-y-3 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[hsl(var(--accent-cyan))] flex-shrink-0 mt-0.5" />
-                    <span className="text-[hsl(var(--text-muted))]">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-[hsl(var(--accent-cyan))] text-sm font-medium pt-4 border-t border-[hsl(var(--stroke))]">
-                {service.footer}
-              </p>
+              <prof.icon className="w-12 h-12 text-[hsl(var(--accent-cyan))] mb-4" strokeWidth={1.5} />
+              <h3 className="text-xl font-bold mb-3 text-[hsl(var(--text))]">{prof.title}</h3>
+              <p className="text-[hsl(var(--text-muted))]">{prof.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button 
+            onClick={scrollToDemo}
+            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform duration-300"
+            size="lg"
+          >
+            {content[locale].cta}
+          </Button>
         </div>
       </div>
     </section>
   );
-};
+}

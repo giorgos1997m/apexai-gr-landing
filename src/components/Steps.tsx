@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Phone, Cog, Rocket } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from './ui/button';
 
 interface StepsProps {
@@ -8,122 +8,128 @@ interface StepsProps {
 
 export const Steps = ({ locale }: StepsProps) => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
-
+  
   const content = {
     gr: {
-      title: 'Τρία ξεκάθαρα βήματα για να ξεκινήσετε',
-      subtitle: 'Απλή και γρήγορη διαδικασία που δίνει αποτελέσματα μέσα σε λίγες μέρες',
+      title: '3 Απλά Βήματα για να Ξεκινήσετε.',
+      cta: 'Ξεκινήστε Σήμερα ➜ Δωρεάν Δοκιμή 14 Ημερών',
       steps: [
         {
           icon: Phone,
-          number: 1,
-          title: 'Audit Call (30\')',
-          description: 'Καλούμε εσάς ή έναν συνεργάτη σας, εντοπίζουμε τις ευκαιρίες σας, προσδιορίζουμε το ROI και κάνουμε account setup.',
+          number: '01',
+          title: 'Στρατηγική Κλήση 30\'',
+          description: 'Αναλύουμε τις ανάγκες της επιχείρησής σας.',
         },
         {
           icon: Cog,
-          number: 2,
-          title: 'Ενεργοποίηση 14ήμερης Δοκιμής',
-          description: 'Οι τεχνικοί μας στήνουν το σύστημα, ενσωματώνουμε τις λύσεις AI σας και εκπαιδεύουμε την ομάδα σας.',
+          number: '02',
+          title: 'Κατασκευή & Ενσωμάτωση Agent',
+          description: 'Δημιουργούμε chatbot ή voice agent πλήρως προσαρμοσμένο.',
         },
         {
           icon: Rocket,
-          number: 3,
-          title: 'Launch & Optimize',
-          description: 'Παρακολουθούμε την απόδοση, κάνουμε βελτιστοποιήσεις, και σας βοηθάμε να πετύχετε αποτελέσματα με λίγους μήνες.',
+          number: '03',
+          title: 'Εκκίνηση & Βελτιστοποίηση',
+          description: 'Παρακολουθούμε την απόδοση και βελτιώνουμε τα αποτελέσματα.',
         },
       ],
-      cta: 'Ξεκινήστε 14ήμερη Δοκιμή',
     },
     en: {
-      title: 'Three clear steps to get started',
-      subtitle: 'Simple and fast process that delivers results within days',
+      title: '3 Simple Steps to Get Started.',
+      cta: 'Start Today ➜ 14-Day Free Trial',
       steps: [
         {
           icon: Phone,
-          number: 1,
-          title: 'Audit Call (30\')',
-          description: 'We analyze your current processes, identify opportunities, determine ROI and make account setup.',
+          number: '01',
+          title: '30-Minute Strategy Call',
+          description: 'We analyze your business needs.',
         },
         {
           icon: Cog,
-          number: 2,
-          title: 'Activate 14-day Trial',
-          description: 'Our technicians set up the system, integrate your AI solutions and train your team.',
+          number: '02',
+          title: 'Agent Build & Integration',
+          description: 'We create a fully customized chatbot or voice agent.',
         },
         {
           icon: Rocket,
-          number: 3,
-          title: 'Launch & Optimize',
-          description: 'We monitor performance, make optimizations, and help you achieve results within months.',
+          number: '03',
+          title: 'Launch & Optimization',
+          description: 'We monitor performance and improve results.',
         },
       ],
-      cta: 'Start 14-day Trial',
     },
   };
 
   return (
-    <section id="steps" className="py-20">
-      <div id="how-it-works" className="container mx-auto px-4">
+    <section id="how-it-works" className="py-20 bg-[hsl(var(--bg))]">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold">
             {content[locale].title}
           </h2>
-          <p className="text-xl text-[hsl(var(--text-muted))] max-w-2xl mx-auto">
-            {content[locale].subtitle}
-          </p>
         </div>
 
-        <div className="max-w-5xl mx-auto mb-12">
-          <div className="relative flex items-center justify-between mb-16">
+        <div className="max-w-4xl mx-auto relative">
+          {/* Progress Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[hsl(var(--stroke))] md:block hidden">
             <div 
-              className="absolute left-0 right-0 top-1/2 h-1 bg-[hsl(var(--stroke))] -translate-y-1/2"
-            />
-            <div 
-              className="absolute left-0 top-1/2 h-1 bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] -translate-y-1/2 transition-all duration-500"
+              className="bg-gradient-to-b from-[hsl(var(--accent-cyan))] to-[#0099CC] w-full transition-all duration-500"
               style={{ 
-                width: activeStep !== null ? `${(activeStep / (content[locale].steps.length - 1)) * 100}%` : '0%' 
+                height: activeStep !== null ? `${(activeStep + 1) * 33.33}%` : '0%'
               }}
             />
-            
+          </div>
+
+          <div className="space-y-8">
             {content[locale].steps.map((step, index) => (
-              <div 
+              <div
                 key={index}
-                className="relative z-10"
+                className="flex gap-6 items-start relative"
                 onMouseEnter={() => setActiveStep(index)}
                 onMouseLeave={() => setActiveStep(null)}
               >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300 ${
-                  activeStep !== null && index <= activeStep
-                    ? 'bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] glow-cyan-sm'
-                    : 'bg-[hsl(var(--card))] text-[hsl(var(--text-muted))] border-2 border-[hsl(var(--stroke))]'
-                }`}>
+                {/* Step Number Circle */}
+                <div className={`
+                  flex-shrink-0 w-16 h-16 rounded-full border-2 
+                  flex items-center justify-center font-bold text-xl
+                  transition-all duration-300 z-10 bg-[hsl(var(--card))]
+                  ${activeStep === index 
+                    ? 'border-[hsl(var(--accent-cyan))] text-[hsl(var(--accent-cyan))] shadow-[0_0_20px_rgba(0,209,255,0.3)]' 
+                    : 'border-[hsl(var(--stroke))] text-[hsl(var(--text-muted))]'
+                  }
+                `}>
                   {step.number}
+                </div>
+
+                {/* Step Content */}
+                <div className={`
+                  flex-1 bg-[hsl(var(--card))] border rounded-xl p-6
+                  transition-all duration-300
+                  ${activeStep === index 
+                    ? 'border-[hsl(var(--accent-cyan))] shadow-[0_0_30px_rgba(0,209,255,0.15)]' 
+                    : 'border-[hsl(var(--stroke))]'
+                  }
+                `}>
+                  <div className="flex items-start gap-4">
+                    <step.icon className={`
+                      w-8 h-8 flex-shrink-0 transition-colors
+                      ${activeStep === index ? 'text-[hsl(var(--accent-cyan))]' : 'text-[hsl(var(--text-muted))]'}
+                    `} />
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                      <p className="text-[hsl(var(--text-muted))]">{step.description}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {content[locale].steps.map((step, index) => (
-              <div 
-                key={index}
-                className="card bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
-                onMouseEnter={() => setActiveStep(index)}
-                onMouseLeave={() => setActiveStep(null)}
-              >
-                <step.icon className="w-12 h-12 text-[hsl(var(--accent-cyan))] mb-4" />
-                <h3 className="text-xl font-bold mb-3 text-[hsl(var(--text))]">{step.title}</h3>
-                <p className="text-[hsl(var(--text-muted))]">{step.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="text-center">
+        <div className="text-center mt-12">
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan text-lg px-8 py-6"
+            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(0,209,255,0.3)]"
           >
             {content[locale].cta}
           </Button>
@@ -131,4 +137,4 @@ export const Steps = ({ locale }: StepsProps) => {
       </div>
     </section>
   );
-};
+}

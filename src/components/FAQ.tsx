@@ -11,122 +11,105 @@ export const FAQ = ({ locale }: FAQProps) => {
 
   const content = {
     gr: {
-      title: 'Συχνές Ερωτήσεις',
-      subtitle: 'Όλα όσα χρειάζεται να ξέρετε για να ξεκινήσετε με την APEX AI',
+      title: 'Συχνές Ερωτήσεις.',
+      cta: 'Έχετε άλλη ερώτηση; ➜ Κλείστε μια γρήγορη κλήση μαζί μας.',
       faqs: [
         {
-          q: 'Πόσο γρήγορα μπορώ να ξεκινήσω;',
-          a: 'Το σύστημα εγκαθίσταται σε 48–72 ώρες. Μετά την Audit Call, η ομάδα μας στήνει τα πάντα και είστε έτοιμοι για τη 14ήμερη δοκιμαστική περίοδο.',
+          question: 'Χρειάζομαι τεχνικές γνώσεις;',
+          answer: 'Όχι, τα ρυθμίζουμε όλα εμείς. Αναλαμβάνουμε την εγκατάσταση, την προσαρμογή και την εκπαίδευση του AI agent σας.',
         },
         {
-          q: 'Πώς γίνεται το Technical Onboarding;',
-          a: 'Η ομάδα μας αναλαμβάνει όλη την τεχνική εγκατάσταση. Ενσωματώνουμε το σύστημά μας με τα εργαλεία σας (CRM, ημερολόγιο, email) και εκπαιδεύουμε την ομάδα σας.',
+          question: 'Πώς λειτουργεί η δωρεάν δοκιμή;',
+          answer: 'Διαρκεί 14 ημέρες χωρίς δέσμευση ή κάρτα. Απλά κλείνετε μια στρατηγική κλήση και ξεκινάμε αμέσως.',
         },
         {
-          q: 'Τι περιλαμβάνει το σύστημα booking;',
-          a: 'Το AI μας συνδέεται με το ημερολόγιό σας και κλείνει ραντεβού αυτόματα. Οι πελάτες λαμβάνουν επιβεβαίωση μέσω SMS/email και υπενθυμίσεις πριν το ραντεβού.',
+          question: 'Είναι ασφαλή τα δεδομένα;',
+          answer: 'Ναι, πλήρως GDPR-compliant. Όλα τα δεδομένα αποθηκεύονται με κρυπτογράφηση και σύμφωνα με τους ευρωπαϊκούς κανονισμούς.',
         },
         {
-          q: 'Μπορώ να χειριστώ ερωτήσεις συγκεκριμένες για το field μου;',
-          a: 'Ναι! Εκπαιδεύουμε τα AI agents με τις δικές σας πληροφορίες, FAQs και workflows. Το σύστημα μαθαίνει συνεχώς και βελτιώνεται.',
+          question: 'Πόσος χρόνος χρειάζεται για εγκατάσταση;',
+          answer: 'Συνήθως 24-48 ώρες. Μετά από μια στρατηγική κλήση 30\', δημιουργούμε και ενσωματώνουμε το agent σας άμεσα.',
         },
         {
-          q: 'Τι αν ο πελάτης προτιμά ανθρώπινη επικοινωνία;',
-          a: 'Το σύστημα αναγνωρίζει πότε χρειάζεται ανθρώπινη παρέμβαση και σας μεταφέρει την κλήση ή το μήνυμα αμέσως.',
-        },
-        {
-          q: 'Πώς μετράμε την επιτυχία και το ROI;',
-          a: 'Σας δίνουμε πλήρη ορατότητα: αριθμό κλήσεων, booked ραντεβού, conversion rates, χρόνο εξοικονόμησης και άλλα KPIs σε πραγματικό χρόνο.',
-        },
-        {
-          q: 'Τι συμβαίνει μετά τη 14ήμερη δοκιμή;',
-          a: 'Αν δείτε αποτελέσματα, συνεχίζετε με το πλάνο που ταιριάζει στις ανάγκες σας. Δεν υπάρχει μακροπρόθεσμη δέσμευση.',
+          question: 'Μπορώ να το σταματήσω όποτε θέλω;',
+          answer: 'Φυσικά, χωρίς ρήτρες ή ποινές. Δεν υπάρχουν δεσμεύσεις μακράς διάρκειας.',
         },
       ],
-      cta: 'Κλείστε Δωρεάν Στρατηγική Κλήση',
     },
     en: {
-      title: 'Frequently Asked Questions',
-      subtitle: 'Everything you need to know about getting started with APEX AI',
+      title: 'Frequently Asked Questions.',
+      cta: 'Have another question? ➜ Book a quick call with us.',
       faqs: [
         {
-          q: 'How quickly can I get started?',
-          a: 'The system is installed in 48–72 hours. After the Audit Call, our team sets everything up and you\'re ready for the 14-day trial period.',
+          question: 'Do I need technical knowledge?',
+          answer: 'No, we set everything up for you. We handle the installation, customization, and training of your AI agent.',
         },
         {
-          q: 'How does Technical Onboarding work?',
-          a: 'Our team handles all the technical installation. We integrate our system with your tools (CRM, calendar, email) and train your team.',
+          question: 'How does the free trial work?',
+          answer: 'It lasts 14 days with no commitment or card required. Simply book a strategy call and we start right away.',
         },
         {
-          q: 'What does the booking system include?',
-          a: 'Our AI connects to your calendar and books appointments automatically. Customers receive confirmation via SMS/email and reminders before the appointment.',
+          question: 'Is my data secure?',
+          answer: 'Yes, fully GDPR-compliant. All data is encrypted and stored according to European regulations.',
         },
         {
-          q: 'Can I handle questions specific to my field?',
-          a: 'Yes! We train the AI agents with your own information, FAQs and workflows. The system learns continuously and improves.',
+          question: 'How long does installation take?',
+          answer: 'Usually 24-48 hours. After a 30-minute strategy call, we create and integrate your agent immediately.',
         },
         {
-          q: 'What if the customer prefers human communication?',
-          a: 'The system recognizes when human intervention is needed and transfers the call or message to you immediately.',
-        },
-        {
-          q: 'How do we measure success and ROI?',
-          a: 'We give you full visibility: number of calls, booked appointments, conversion rates, time saved and other KPIs in real time.',
-        },
-        {
-          q: 'What happens after the 14-day trial?',
-          a: 'If you see results, you continue with the plan that fits your needs. There is no long-term commitment.',
+          question: 'Can I cancel anytime?',
+          answer: 'Of course, with no penalties or fees. There are no long-term commitments.',
         },
       ],
-      cta: 'Book Free Strategy Call',
     },
   };
 
   return (
-    <section id="faq" className="py-20">
+    <section id="faq" className="py-20 bg-[hsl(var(--bg))]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold">
             {content[locale].title}
           </h2>
-          <p className="text-xl text-[hsl(var(--text-muted))] max-w-2xl mx-auto">
-            {content[locale].subtitle}
-          </p>
         </div>
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-0 space-y-4 mb-12">
+        <div className="max-w-3xl mx-auto space-y-4 mb-12">
           {content[locale].faqs.map((faq, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl overflow-hidden hover:border-[hsl(var(--stroke-cyan))] transition-all duration-300"
+              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl overflow-hidden hover:border-[hsl(var(--accent-cyan))] hover:shadow-[0_0_20px_rgba(0,209,255,0.1)] transition-all duration-300"
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-4 flex items-center justify-between text-left"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="font-semibold text-[hsl(var(--text))]">{faq.q}</span>
-                <ChevronDown 
-                  className={`w-5 h-5 text-[hsl(var(--accent-cyan))] transition-transform ${
+                <span className="font-semibold text-lg text-[hsl(var(--text))]">
+                  {faq.question}
+                </span>
+                <ChevronDown
+                  className={`w-5 h-5 text-[hsl(var(--accent-cyan))] transition-transform duration-300 flex-shrink-0 ml-4 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
               </button>
-              {openIndex === index && (
+              
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-96' : 'max-h-0'
+                }`}
+              >
                 <div className="px-6 pb-4 text-[hsl(var(--text-muted))]">
-                  {faq.a}
+                  {faq.answer}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-[hsl(var(--text-muted))] mb-4">
-            {locale === 'gr' ? 'Έχετε περισσότερες ερωτήσεις; Ας τα πούμε!' : 'Have more questions? Let\'s talk!'}
-          </p>
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] text-[hsl(var(--bg))] hover:opacity-90 glow-cyan"
+            className="bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform duration-300"
           >
             {content[locale].cta}
           </Button>
@@ -134,4 +117,4 @@ export const FAQ = ({ locale }: FAQProps) => {
       </div>
     </section>
   );
-};
+}
