@@ -29,7 +29,7 @@ export const Pricing = ({ locale }: PricingProps) => {
             'Google Reviews Automation',
             'Προτεραιότητα στην υποστήριξη'
           ],
-          cta: 'Κλείστε Επίδειξη ➜',
+          cta: 'Μιλήστε με Ειδικό ➜',
           highlight: true
         },
         {
@@ -68,7 +68,7 @@ export const Pricing = ({ locale }: PricingProps) => {
             'Google Reviews Automation',
             'Priority support'
           ],
-          cta: 'Book a Demo ➜',
+          cta: 'Talk to a Specialist ➜',
           highlight: true
         },
         {

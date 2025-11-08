@@ -11,6 +11,9 @@ export const TryIt = ({ locale }: TryItProps) => {
       title: 'Δοκιμάστε τους Agents μας σε Πραγματικό Χρόνο.',
       subtitle: 'Δείτε πώς το APEX AI συνομιλεί με πελάτες, απαντά σε ερωτήσεις και κλείνει ραντεβού.',
       cta: '🧠 Θέλω να το δοκιμάσω στη δική μου επιχείρηση!',
+      chatCta: 'Ξεκινήστε Συνομιλία',
+      chatDemoCta: 'Δοκιμάστε το AI Chat Demo',
+      voiceDemoCta: 'Δοκιμάστε Voice Demo',
       chatbot: {
         title: 'AI Chatbot Demo',
         description: 'Δοκιμάστε μια συνομιλία με το AI μας',
@@ -29,13 +32,15 @@ export const TryIt = ({ locale }: TryItProps) => {
           { role: 'caller', text: 'Θέλω ραντεβού για Τρίτη' },
           { role: 'agent', text: '📞 Ωραία! Τι ώρα σας βολεύει;' },
         ],
-        cta: '▶️ Ακούστε Voice Demo',
       },
     },
     en: {
       title: 'Try Our Agents in Real Time.',
       subtitle: 'See how APEX AI talks to customers, answers questions, and books appointments.',
       cta: '🧠 I want to try this for my business!',
+      chatCta: 'Start Conversation',
+      chatDemoCta: 'Try AI Chat Demo',
+      voiceDemoCta: 'Try Voice Demo',
       chatbot: {
         title: 'AI Chatbot Demo',
         description: 'Try a conversation with our AI',
@@ -54,7 +59,6 @@ export const TryIt = ({ locale }: TryItProps) => {
           { role: 'caller', text: 'I need an appointment for Tuesday' },
           { role: 'agent', text: '📞 Great! What time works for you?' },
         ],
-        cta: '▶️ Listen to Voice Demo',
       },
     },
   };
@@ -102,6 +106,22 @@ export const TryIt = ({ locale }: TryItProps) => {
                 </div>
               ))}
             </div>
+            
+            <div className="space-y-3">
+              <Button 
+                size="lg"
+                variant="outline"
+                className="w-full hover:bg-[hsl(var(--accent-cyan))]/10 hover:border-[hsl(var(--accent-cyan))]"
+              >
+                {content[locale].chatCta}
+              </Button>
+              <Button 
+                size="lg"
+                className="w-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] hover:opacity-90 glow-cyan-sm"
+              >
+                {content[locale].chatDemoCta}
+              </Button>
+            </div>
           </div>
 
           {/* Voice Agent Demo */}
@@ -135,8 +155,11 @@ export const TryIt = ({ locale }: TryItProps) => {
               ))}
             </div>
             
-            <Button className="w-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[#0099CC] hover:scale-105 transition-transform">
-              {content[locale].voice.cta}
+            <Button 
+              size="lg"
+              className="w-full bg-gradient-to-r from-[hsl(var(--accent-cyan))] to-[hsl(var(--accent-blue))] hover:opacity-90 glow-cyan-sm"
+            >
+              {content[locale].voiceDemoCta}
             </Button>
           </div>
         </div>

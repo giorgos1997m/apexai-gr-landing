@@ -76,10 +76,19 @@ export const BlogResources = ({ locale }: BlogResourcesProps) => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {articles.map((article, index) => {
             const Icon = article.icon;
+            const articleLinks = [
+              'https://connect.lime-technologies.com/en/blog/chatbot-case-studies/',
+              'https://deepgram.com/learn/exposing-ai-voice-agents-a-case-study',
+              'https://medium.com/@matiaspeltola/case-study-automation-saving-business-unit-68-hours-a-month-21b148220a26'
+            ];
+            
             return (
-              <div
+              <a
                 key={index}
-                className="reveal bg-[hsl(var(--card))] rounded-2xl p-8 border border-[hsl(var(--stroke))] hover:border-[hsl(var(--accent-cyan))] transition-all duration-300 hover:glow-cyan-sm group"
+                href={articleLinks[index]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal bg-[hsl(var(--card))] rounded-2xl p-8 border border-[hsl(var(--stroke))] hover:border-[hsl(var(--accent-cyan))] transition-all duration-300 hover:glow-cyan-sm group block"
                 data-reveal="up"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
@@ -94,10 +103,10 @@ export const BlogResources = ({ locale }: BlogResourcesProps) => {
                     {article.description}
                   </p>
                 </div>
-                <button className="text-[hsl(var(--accent-cyan))] font-semibold group-hover:underline transition-all">
+                <span className="text-[hsl(var(--accent-cyan))] font-semibold group-hover:underline transition-all">
                   {article.cta}
-                </button>
-              </div>
+                </span>
+              </a>
             );
           })}
         </div>

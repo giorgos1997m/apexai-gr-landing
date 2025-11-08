@@ -39,19 +39,22 @@ export const Hero = ({ locale }: HeroProps) => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F14] to-[#02060C]" />
       
-      {/* 3D Robot Visual - RIGHT Column */}
-      <div className="absolute inset-0 md:left-1/2 md:w-1/2">
+      {/* 3D Robot Visual - FULL BLEED */}
+      <div className="absolute inset-0" id="hero-spline-container">
         <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/20 via-transparent to-transparent opacity-40" />
         <iframe
           src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
           className="spline-hero w-full h-full hero-visual"
-          style={{ border: 'none' }}
+          style={{ border: 'none', pointerEvents: 'auto' }}
         />
       </div>
       
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-y-0 left-0 w-full md:w-[45%] bg-gradient-to-r from-[#0B0F14]/90 via-[#0B0F14]/60 to-transparent md:opacity-100 opacity-40 z-[5]" />
+      
       {/* Content - LEFT Column */}
       <div className="hero-content relative container mx-auto px-4 py-20 md:py-32 z-10">
-        <div className="max-w-2xl md:pr-8">
+        <div className="max-w-2xl md:pr-8 relative z-10">
           {/* Micro Tagline */}
           <p className="hero-tagline text-sm font-medium text-[hsl(var(--accent-cyan))] mb-4 tracking-wide uppercase opacity-0">
             {content[locale].microTagline}

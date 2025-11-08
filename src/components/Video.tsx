@@ -38,10 +38,13 @@ export const Video = ({ locale }: VideoProps) => {
           </p>
         </div>
 
-        <div className="video-wrap max-w-4xl mx-auto mb-12">
+        <div className="video-wrap max-w-4xl mx-auto mb-16 md:mb-20">
           <div className="relative aspect-video bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden border-2 border-[hsl(var(--stroke-cyan))] glow-cyan">
             <div className="absolute inset-0 flex items-center justify-center">
-              <button className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan">
+              <button 
+                className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan"
+                aria-label={locale === 'gr' ? 'Αναπαραγωγή βίντεο' : 'Play video'}
+              >
                 <Play className="w-10 h-10 text-[hsl(var(--bg))] ml-1" fill="currentColor" />
               </button>
             </div>
@@ -53,7 +56,8 @@ export const Video = ({ locale }: VideoProps) => {
           {content[locale].kpis.map((kpi, index) => (
             <div 
               key={index}
-              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 text-center"
+              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 text-center h-full flex flex-col justify-center"
+              aria-label={`${kpi.value} ${kpi.label}`}
             >
               <div className={`text-4xl font-bold mb-2 ${
                 kpi.color === 'red' ? 'text-[hsl(var(--accent-red))]' :
@@ -62,7 +66,7 @@ export const Video = ({ locale }: VideoProps) => {
               }`}>
                 {kpi.value}
               </div>
-              <p className="text-[hsl(var(--text-muted))]">{kpi.label}</p>
+              <p className="text-[hsl(var(--text))] font-medium">{kpi.label}</p>
             </div>
           ))}
         </div>

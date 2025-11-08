@@ -16,24 +16,44 @@ export const FAQ = ({ locale }: FAQProps) => {
       faqs: [
         {
           question: 'Χρειάζομαι τεχνικές γνώσεις;',
-          answer: 'Όχι, τα ρυθμίζουμε όλα εμείς. Αναλαμβάνουμε την εγκατάσταση, την προσαρμογή και την εκπαίδευση του AI agent σας.',
+          answer: 'Όχι, τα ρυθμίζουμε όλα εμείς. Από την πρώτη στιγμή, η ομάδα μας αναλαμβάνει την πλήρη εγκατάσταση και παραμετροποίηση του συστήματος.'
         },
         {
           question: 'Πώς λειτουργεί η δωρεάν δοκιμή;',
-          answer: 'Διαρκεί 14 ημέρες χωρίς δέσμευση ή κάρτα. Απλά κλείνετε μια στρατηγική κλήση και ξεκινάμε αμέσως.',
+          answer: 'Διαρκεί 14 ημέρες, χωρίς να χρειάζεται κάρτα ή δέσμευση. Δοκιμάζετε τους AI agents μας χωρίς κανέναν περιορισμό και αποφασίζετε στη συνέχεια.'
         },
         {
           question: 'Είναι ασφαλή τα δεδομένα;',
-          answer: 'Ναι, πλήρως GDPR-compliant. Όλα τα δεδομένα αποθηκεύονται με κρυπτογράφηση και σύμφωνα με τους ευρωπαϊκούς κανονισμούς.',
+          answer: 'Ναι, είμαστε πλήρως GDPR-compliant. Όλα τα δεδομένα αποθηκεύονται με κρυπτογράφηση και ακολουθούμε αυστηρά πρωτόκολλα ασφαλείας.'
         },
         {
           question: 'Πόσος χρόνος χρειάζεται για εγκατάσταση;',
-          answer: 'Συνήθως 24-48 ώρες. Μετά από μια στρατηγική κλήση 30\', δημιουργούμε και ενσωματώνουμε το agent σας άμεσα.',
+          answer: 'Συνήθως 24–48 ώρες. Αναλόγως τη πολυπλοκότητα της ενσωμάτωσης, μπορεί να χρειαστεί λίγες επιπλέον μέρες για πλήρη παραμετροποίηση.'
+        },
+        {
+          question: 'Τι γίνεται με ακυρώσεις/μη εμφάνιση;',
+          answer: 'Οι αυτόματες υπενθυμίσεις μας μειώνουν σημαντικά τα no-shows. Το σύστημα στέλνει SMS και email υπενθυμίσεις πριν από κάθε ραντεβού.'
+        },
+        {
+          question: 'Σε ποια συστήματα συνδέεται;',
+          answer: 'Συνδεόμαστε με Google Calendar, CRM συστήματα, Google Reviews, SMS/Email πλατφόρμες και πολλά άλλα. Η ενσωμάτωση είναι απλή και γρήγορη.'
         },
         {
           question: 'Μπορώ να το σταματήσω όποτε θέλω;',
-          answer: 'Φυσικά, χωρίς ρήτρες ή ποινές. Δεν υπάρχουν δεσμεύσεις μακράς διάρκειας.',
+          answer: 'Φυσικά, χωρίς ρήτρες ή ποινές. Η συνεργασία μας είναι ευέλικτη και μπορείτε να τη διακόψετε ανά πάσα στιγμή.'
         },
+        {
+          question: 'Υποστηρίζει ελληνικά & αγγλικά;',
+          answer: 'Ναι, η διγλωσσία είναι ενσωματωμένη by default. Οι AI agents μας μιλούν τέλεια ελληνικά και αγγλικά, προσαρμοζόμενοι στη γλώσσα του πελάτη.'
+        },
+        {
+          question: 'Τι γίνεται εκτός ωραρίου;',
+          answer: 'Οι AI agents λειτουργούν 24/7. Απαντούν σε ερωτήσεις και κλείνουν ραντεβού ακόμη και όταν η επιχείρησή σας είναι κλειστή.'
+        },
+        {
+          question: 'Φωνητικός agent vs. chatbot — πότε επιλέγω τι;',
+          answer: 'Ο chatbot είναι ιδανικός για γρήγορες απαντήσεις στο website. Ο voice agent αναλαμβάνει τηλεφωνικές κλήσεις με φυσικό τρόπο. Συνήθως συνδυάζουμε και τα δύο για μέγιστη απόδοση.'
+        }
       ],
     },
     en: {
@@ -41,25 +61,45 @@ export const FAQ = ({ locale }: FAQProps) => {
       cta: 'Have another question? ➜ Book a quick call with us.',
       faqs: [
         {
-          question: 'Do I need technical knowledge?',
-          answer: 'No, we set everything up for you. We handle the installation, customization, and training of your AI agent.',
+          question: 'Do I need tech skills?',
+          answer: 'No, we handle all the setup. From the very beginning, our team takes care of the complete installation and configuration of the system.'
         },
         {
           question: 'How does the free trial work?',
-          answer: 'It lasts 14 days with no commitment or card required. Simply book a strategy call and we start right away.',
+          answer: 'It lasts 14 days, no credit card or commitment required. You can test our AI agents without any limitations and decide afterwards.'
         },
         {
-          question: 'Is my data secure?',
-          answer: 'Yes, fully GDPR-compliant. All data is encrypted and stored according to European regulations.',
+          question: 'Is data secure/GDPR compliant?',
+          answer: 'Yes, we are fully GDPR-compliant. All data is stored with encryption and we follow strict security protocols.'
         },
         {
-          question: 'How long does installation take?',
-          answer: 'Usually 24-48 hours. After a 30-minute strategy call, we create and integrate your agent immediately.',
+          question: 'How long does setup take?',
+          answer: 'Usually 24–48 hours. Depending on integration complexity, it may take a few extra days for full customization.'
+        },
+        {
+          question: 'What about no-shows and cancellations?',
+          answer: 'Our automatic reminders significantly reduce no-shows. The system sends SMS and email reminders before each appointment.'
+        },
+        {
+          question: 'What systems does it integrate with?',
+          answer: 'We integrate with Google Calendar, CRM systems, Google Reviews, SMS/Email platforms, and many more. Integration is simple and fast.'
         },
         {
           question: 'Can I cancel anytime?',
-          answer: 'Of course, with no penalties or fees. There are no long-term commitments.',
+          answer: 'Of course, with no penalties or fees. Our collaboration is flexible and you can cancel at any time.'
         },
+        {
+          question: 'Does it support Greek and English?',
+          answer: 'Yes, bilingual support is built-in by default. Our AI agents speak perfect Greek and English, adapting to the customer\'s language.'
+        },
+        {
+          question: 'What happens outside business hours?',
+          answer: 'AI agents work 24/7. They answer questions and book appointments even when your business is closed.'
+        },
+        {
+          question: 'Voice agent vs. chatbot — when to choose what?',
+          answer: 'The chatbot is ideal for quick answers on your website. The voice agent handles phone calls naturally. We usually combine both for maximum performance.'
+        }
       ],
     },
   };
