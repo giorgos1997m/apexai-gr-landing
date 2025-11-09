@@ -38,18 +38,20 @@ export const Video = ({ locale }: VideoProps) => {
           </p>
         </div>
 
-        {/* Video Container with increased spacing */}
-        <div className="video-wrap max-w-4xl mx-auto mb-16 md:mb-20">
-          <div className="relative aspect-video bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden border-2 border-[hsl(var(--stroke-cyan))] shadow-[0_0_30px_rgba(0,209,255,0.2)]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button 
-                className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan"
-                aria-label={locale === 'gr' ? 'Αναπαραγωγή βίντεο' : 'Play video'}
-              >
-                <Play className="w-10 h-10 text-[hsl(var(--bg))] ml-1" fill="currentColor" />
-              </button>
+        {/* Video Container - reduced height, increased spacing */}
+        <div className="video-wrap max-w-4xl mx-auto mb-20 md:mb-28">
+          <div className="relative rounded-2xl border-2 border-[hsl(var(--stroke-cyan))] shadow-[0_0_30px_rgba(0,209,255,0.2)]" style={{ aspectRatio: '16 / 10' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button 
+                  className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan"
+                  aria-label={locale === 'gr' ? 'Αναπαραγωγή βίντεο' : 'Play video'}
+                >
+                  <Play className="w-10 h-10 text-[hsl(var(--bg))] ml-1" fill="currentColor" />
+                </button>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--bg))]/50 to-transparent" />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--bg))]/50 to-transparent" />
           </div>
         </div>
 
