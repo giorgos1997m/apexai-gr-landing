@@ -74,12 +74,12 @@ export const BlogResources = ({ locale }: BlogResourcesProps) => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {articles.map((article, index) => {
+        {articles.map((article, index) => {
             const Icon = article.icon;
             const articleLinks = [
-              'https://connect.lime-technologies.com/en/blog/chatbot-case-studies/',
-              'https://deepgram.com/learn/exposing-ai-voice-agents-a-case-study',
-              'https://medium.com/@matiaspeltola/case-study-automation-saving-business-unit-68-hours-a-month-21b148220a26'
+              'https://doneforyou.com/ai-chatbot-case-studies-business-growth/',
+              'https://www.scnsoft.com/case-studies/hipaa-compliant-healthcare-ai-voice-scheduler-powered-by-amazon-nova-sonic',
+              'https://sbecouncil.org/2023/10/31/ai-is-powering-small-business-new-survey-and-report-finds-273-5-billion-saved-by-small-businesses-annually/'
             ];
             
             return (

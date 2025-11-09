@@ -38,8 +38,9 @@ export const Video = ({ locale }: VideoProps) => {
           </p>
         </div>
 
+        {/* Video Container with increased spacing */}
         <div className="video-wrap max-w-4xl mx-auto mb-16 md:mb-20">
-          <div className="relative aspect-video bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden border-2 border-[hsl(var(--stroke-cyan))] glow-cyan">
+          <div className="relative aspect-video bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden border-2 border-[hsl(var(--stroke-cyan))] shadow-[0_0_30px_rgba(0,209,255,0.2)]">
             <div className="absolute inset-0 flex items-center justify-center">
               <button 
                 className="w-20 h-20 bg-[hsl(var(--accent-cyan))] rounded-full flex items-center justify-center hover:scale-110 transition-transform glow-cyan"
@@ -52,21 +53,22 @@ export const Video = ({ locale }: VideoProps) => {
           </div>
         </div>
 
-        <div className="kpis-wrap grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {/* Metrics with increased spacing and equal height */}
+        <div className="kpis-wrap grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mt-12 md:mt-16">
           {content[locale].kpis.map((kpi, index) => (
             <div 
               key={index}
-              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 text-center h-full flex flex-col justify-center"
+              className="bg-[hsl(var(--card))] border border-[hsl(var(--stroke))] rounded-xl p-6 text-center h-full flex flex-col justify-center min-h-[160px]"
               aria-label={`${kpi.value} ${kpi.label}`}
             >
-              <div className={`text-4xl font-bold mb-2 ${
+              <div className={`text-4xl md:text-5xl font-bold mb-2 ${
                 kpi.color === 'red' ? 'text-[hsl(var(--accent-red))]' :
                 kpi.color === 'green' ? 'text-[hsl(var(--accent-green))]' :
                 'text-[hsl(var(--accent-cyan))]'
               }`}>
                 {kpi.value}
               </div>
-              <p className="text-[hsl(var(--text))] font-medium">{kpi.label}</p>
+              <p className="text-[hsl(var(--text))] font-medium text-lg contrast-more:text-[hsl(var(--foreground))]">{kpi.label}</p>
             </div>
           ))}
         </div>

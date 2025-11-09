@@ -53,6 +53,26 @@ export const FAQ = ({ locale }: FAQProps) => {
         {
           question: 'Φωνητικός agent vs. chatbot — πότε επιλέγω τι;',
           answer: 'Ο chatbot είναι ιδανικός για γρήγορες απαντήσεις στο website. Ο voice agent αναλαμβάνει τηλεφωνικές κλήσεις με φυσικό τρόπο. Συνήθως συνδυάζουμε και τα δύο για μέγιστη απόδοση.'
+        },
+        {
+          question: 'Μπορεί να συνδεθεί με το CRM / calendar μου;',
+          answer: 'Ναι, υποστηρίζουμε Google Calendar, Outlook, και APIs CRM όπως Salesforce, HubSpot, και άλλα συστήματα. Η ενσωμάτωση είναι απλή και γρήγορη.'
+        },
+        {
+          question: 'Λειτουργεί 24/7;',
+          answer: 'Ναι, οι AI agents λειτουργούν 24/7 με fallback σε άνθρωπο όπου χρειάζεται. Μπορείτε να ορίσετε πότε θέλετε αυτόματη απάντηση και πότε ειδοποίηση.'
+        },
+        {
+          question: 'Πώς διασφαλίζεται το GDPR;',
+          answer: 'Κρυπτογράφηση δεδομένων, ελαχιστοποίηση συλλογής, ρητή συγκατάθεση χρήστη, και logs ελέγχου. Όλα τα δεδομένα αποθηκεύονται σύμφωνα με τους ευρωπαϊκούς κανονισμούς.'
+        },
+        {
+          question: 'Μπορώ να αλλάξω/εκπαιδεύσω τις απαντήσεις;',
+          answer: 'Ναι, μέσω του dashboard μπορείτε να διαχειριστείτε το knowledge base και τα intents. Προσθέτετε νέες ερωτήσεις, απαντήσεις, και σενάρια ανά πάσα στιγμή.'
+        },
+        {
+          question: 'Τι υποστήριξη παρέχετε;',
+          answer: 'Ελληνική υποστήριξη με SLA, on-boarding σε 48 ώρες, και dedicated support για Enterprise πλάνα. Είμαστε διαθέσιμοι μέσω email, chat, και τηλέφωνο.'
         }
       ],
     },
@@ -99,6 +119,26 @@ export const FAQ = ({ locale }: FAQProps) => {
         {
           question: 'Voice agent vs. chatbot — when to choose what?',
           answer: 'The chatbot is ideal for quick answers on your website. The voice agent handles phone calls naturally. We usually combine both for maximum performance.'
+        },
+        {
+          question: 'Can it connect to my CRM / calendar?',
+          answer: 'Yes, we support Google Calendar, Outlook, and CRM APIs like Salesforce, HubSpot, and other systems. Integration is simple and fast.'
+        },
+        {
+          question: 'Does it work 24/7?',
+          answer: 'Yes, AI agents work 24/7 with fallback to human when needed. You can configure when you want automatic responses and when you want notifications.'
+        },
+        {
+          question: 'How is GDPR compliance ensured?',
+          answer: 'Data encryption, data minimization, explicit user consent, and audit logs. All data is stored according to European regulations.'
+        },
+        {
+          question: 'Can I change/train the responses?',
+          answer: 'Yes, through the dashboard you can manage the knowledge base and intents. Add new questions, answers, and scenarios at any time.'
+        },
+        {
+          question: 'What support do you provide?',
+          answer: 'Greek support with SLA, 48-hour onboarding, and dedicated support for Enterprise plans. We\'re available via email, chat, and phone.'
         }
       ],
     },

@@ -262,6 +262,20 @@ All colors MUST be HSL.
     border: 1px solid hsla(var(--stroke-cyan), 0.3);
     background: linear-gradient(135deg, hsla(var(--accent-cyan), 0.1), hsla(var(--accent-blue), 0.05));
   }
+  
+  /* Float animation for 3D robot */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }
 
 /* ============ A) LOADING SCREEN ============ */

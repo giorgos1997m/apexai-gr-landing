@@ -13,7 +13,7 @@ export const TryIt = ({ locale }: TryItProps) => {
       cta: '🧠 Θέλω να το δοκιμάσω στη δική μου επιχείρηση!',
       chatCta: 'Ξεκινήστε Συνομιλία',
       chatDemoCta: 'Δοκιμάστε το AI Chat Demo',
-      voiceDemoCta: 'Δοκιμάστε Voice Demo',
+      voiceDemoCta: 'Δοκιμάστε το Voice Demo',
       chatbot: {
         title: 'AI Chatbot Demo',
         description: 'Δοκιμάστε μια συνομιλία με το AI μας',
@@ -40,7 +40,7 @@ export const TryIt = ({ locale }: TryItProps) => {
       cta: '🧠 I want to try this for my business!',
       chatCta: 'Start Conversation',
       chatDemoCta: 'Try AI Chat Demo',
-      voiceDemoCta: 'Try Voice Demo',
+      voiceDemoCta: 'Try the Voice Demo',
       chatbot: {
         title: 'AI Chatbot Demo',
         description: 'Try a conversation with our AI',
@@ -107,7 +107,7 @@ export const TryIt = ({ locale }: TryItProps) => {
               ))}
             </div>
             
-            <div className="space-y-3">
+            <div className="mt-6 space-y-3">
               <Button 
                 size="lg"
                 variant="outline"

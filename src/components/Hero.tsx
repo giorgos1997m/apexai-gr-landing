@@ -39,18 +39,20 @@ export const Hero = ({ locale }: HeroProps) => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F14] to-[#02060C]" />
       
-      {/* 3D Robot Visual - FULL BLEED */}
+      {/* 3D Robot Visual - FULL BLEED with interactivity */}
       <div className="absolute inset-0" id="hero-spline-container">
-        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/20 via-transparent to-transparent opacity-40" />
+        {/* Pulsing glow behind robot */}
+        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/30 via-transparent to-transparent opacity-0 animate-[pulse_8s_ease-in-out_infinite]" />
         <iframe
           src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
-          className="spline-hero w-full h-full hero-visual"
+          className="spline-hero w-full h-full hero-visual animate-[float_6s_ease-in-out_infinite]"
           style={{ border: 'none', pointerEvents: 'auto' }}
+          loading="lazy"
         />
       </div>
       
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-y-0 left-0 w-full md:w-[45%] bg-gradient-to-r from-[#0B0F14]/90 via-[#0B0F14]/60 to-transparent md:opacity-100 opacity-40 z-[5]" />
+      {/* Dark radial gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-radial from-[#0B0F14]/55 via-[#0B0F14]/35 to-transparent z-[5] pointer-events-none" />
       
       {/* Content - LEFT Column */}
       <div className="hero-content relative container mx-auto px-4 py-20 md:py-32 z-10">
