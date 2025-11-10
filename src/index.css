@@ -276,6 +276,17 @@ All colors MUST be HSL.
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
+  /* Parallax effect for hero */
+  .hero-parallax {
+    transition: transform 0.1s ease-out;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-parallax {
+      will-change: transform;
+    }
+  }
 }
 
 /* ============ A) LOADING SCREEN ============ */
