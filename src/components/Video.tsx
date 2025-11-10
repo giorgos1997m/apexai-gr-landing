@@ -38,9 +38,23 @@ export const Video = ({ locale }: VideoProps) => {
           </p>
         </div>
 
-        {/* Video Container - reduced height, increased spacing */}
-        <div className="video-wrap max-w-4xl mx-auto mb-28 md:mb-40">
-          <div className="relative rounded-2xl border-2 border-[hsl(var(--stroke-cyan))] shadow-[0_0_30px_rgba(0,209,255,0.2)]" style={{ aspectRatio: '16 / 10' }}>
+        {/* Video Container - reduced height (~480px desktop, 380px tablet, 280px mobile), top 48px, bottom 56px margins */}
+        <div className="video-wrap max-w-4xl mx-auto mt-12 mb-14">
+          <div 
+            className="relative rounded-2xl border-2 border-[hsl(var(--stroke-cyan))] shadow-[0_0_22px_rgba(0,209,255,0.15)]"
+            style={{ 
+              aspectRatio: '16 / 9',
+              maxHeight: '480px'
+            }}
+          >
+            <style>{`
+              @media (max-width: 1024px) {
+                .video-wrap > div { max-height: 380px !important; }
+              }
+              @media (max-width: 640px) {
+                .video-wrap > div { max-height: 280px !important; }
+              }
+            `}</style>
             <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--accent-cyan))]/20 to-[hsl(var(--accent-blue))]/20 rounded-2xl overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <button 
@@ -55,8 +69,8 @@ export const Video = ({ locale }: VideoProps) => {
           </div>
         </div>
 
-        {/* Metrics with increased spacing and equal height */}
-        <div className="kpis-wrap grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mt-12 md:mt-16">
+        {/* Metrics with 32px gap from video */}
+        <div className="kpis-wrap grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mt-8">
           {content[locale].kpis.map((kpi, index) => (
             <div 
               key={index}

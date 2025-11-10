@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 
@@ -27,6 +28,21 @@ export const Hero = ({ locale }: HeroProps) => {
     },
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const heroParallax = document.querySelector('.hero-parallax') as HTMLElement;
+      
+      if (heroParallax && scrolled < window.innerHeight) {
+        const offset = Math.min(scrolled * 0.15, 15);
+        heroParallax.style.transform = `translateY(${offset}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleScrollDown = () => {
     window.scrollTo({ 
       top: window.innerHeight, 
@@ -39,20 +55,20 @@ export const Hero = ({ locale }: HeroProps) => {
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F14] to-[#02060C]" />
       
-      {/* 3D Robot Visual - FULL BLEED with interactivity */}
-      <div className="absolute inset-0" id="hero-spline-container">
-        {/* Pulsing glow behind robot */}
-        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/30 via-transparent to-transparent opacity-0 animate-[pulse_8s_ease-in-out_infinite]" />
+      {/* 3D Robot Visual - FULL BLEED BACKGROUND with interactivity */}
+      <div className="absolute inset-0 hero-parallax" id="hero-spline-container">
+        {/* Periodic glow pulse */}
+        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/30 via-transparent to-transparent animate-[hero-glow_10s_ease-in-out_infinite]" />
         <iframe
           src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
-          className="spline-hero w-full h-full hero-visual animate-[float_6s_ease-in-out_infinite]"
+          className="spline-hero w-full h-full animate-[float_6s_ease-in-out_infinite]"
           style={{ border: 'none', pointerEvents: 'auto' }}
           loading="lazy"
         />
       </div>
       
-      {/* Dark radial gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-radial from-[#0B0F14]/55 via-[#0B0F14]/35 to-transparent z-[5] pointer-events-none" />
+      {/* Dark radial gradient overlay for text readability (0.45 opacity) */}
+      <div className="absolute inset-0 bg-gradient-radial from-[#0B0F14]/45 via-[#0B0F14]/45 to-transparent z-[5] pointer-events-none" />
       
       {/* Content - LEFT Column */}
       <div className="hero-content relative container mx-auto px-4 py-20 md:py-32 z-10">
@@ -89,6 +105,21 @@ export const Hero = ({ locale }: HeroProps) => {
               {content[locale].ctaSecondary}
             </Button>
           </div>
+          
+          {/* GDPR Badge */}
+          <a 
+            href="https://gdprlocal.com/chatbot-gdpr-compliance/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hero-gdpr inline-flex items-center gap-2 text-sm text-[hsl(var(--text-muted))] opacity-0 hover:text-[hsl(var(--accent-cyan))] transition-colors mb-4"
+          >
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[hsl(var(--card))] border border-[hsl(var(--stroke-cyan))]">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="font-medium">GDPR Ready</span>
+            </span>
+          </a>
           
           {/* Trust Tag */}
           <p className="hero-trust text-sm text-[hsl(var(--text-muted))] opacity-0">

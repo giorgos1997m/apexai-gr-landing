@@ -13,7 +13,7 @@ export const TryIt = ({ locale }: TryItProps) => {
       cta: '🧠 Θέλω να το δοκιμάσω στη δική μου επιχείρηση!',
       chatCta: 'Ξεκινήστε Συνομιλία',
       chatDemoCta: 'Δοκιμάστε το AI Chat Demo',
-      voiceDemoCta: 'Δοκιμάστε το Voice Demo',
+      voiceDemoCta: 'Δοκιμάστε Voice Demo',
       chatbot: {
         title: 'AI Chatbot Demo',
         description: 'Δοκιμάστε μια συνομιλία με το AI μας',
