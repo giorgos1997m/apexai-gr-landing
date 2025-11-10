@@ -41,22 +41,7 @@ export const useScrollReveal = () => {
        - Δεν κινούνται ΚΑΙ τα κουτιά ΚΑΙ τα γράμματα μαζί
     ================================================== */
 
-    // Hero: reveal elements with stagger
-    const heroTagline = document.querySelector('.hero-tagline');
-    const heroTitle = document.querySelector('.hero-title');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroCtas = document.querySelector('.hero-ctas');
-    const heroGdpr = document.querySelector('.hero-gdpr');
-    const heroTrust = document.querySelector('.hero-trust');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    
-    const heroElements = [heroTagline, heroTitle, heroSubtitle, heroCtas, heroGdpr, heroTrust, scrollIndicator].filter(Boolean);
-    heroElements.forEach((el, i) => {
-      setTimeout(() => {
-        (el as HTMLElement).style.opacity = '1';
-        (el as HTMLElement).style.transform = 'translateY(0)';
-      }, 150 + (i * 100));
-    });
+    // Hero: αφήνουμε ως έχει (κανένα auto-reveal στον hero)
 
     // Industries (#pain-points / #industries)
     markAndObserve('#pain-points h2, #pain-points p, #industries h2, #industries p', 'left', { skipIfTyping: true });

@@ -273,24 +273,19 @@ All colors MUST be HSL.
     }
   }
   
-  /* Hero glow pulse animation */
-  @keyframes hero-glow {
-    0%, 100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.3;
-    }
-  }
-  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
-  /* Hero parallax effect */
+
+  /* Parallax effect for hero */
   .hero-parallax {
-    will-change: transform;
     transition: transform 0.1s ease-out;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-parallax {
+      will-change: transform;
+    }
   }
 }
 
@@ -460,19 +455,6 @@ div,
 .reveal.inview { 
   opacity: 1; 
   transform: none; 
-}
-
-/* Hero element transitions */
-.hero-tagline,
-.hero-title,
-.hero-subtitle,
-.hero-ctas,
-.hero-gdpr,
-.hero-trust,
-.scroll-indicator {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* Directional variants */
