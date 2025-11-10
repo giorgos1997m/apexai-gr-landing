@@ -40,9 +40,9 @@ export const Hero = ({ locale }: HeroProps) => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F14] to-[#02060C]" />
       
       {/* 3D Robot Visual - FULL BLEED with interactivity */}
-      <div className="absolute inset-0 hero-parallax" id="hero-spline-container">
+      <div className="absolute inset-0" id="hero-spline-container">
         {/* Pulsing glow behind robot */}
-        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/30 via-transparent to-transparent opacity-0 animate-[pulse_10s_ease-in-out_infinite]" />
+        <div className="absolute inset-0 bg-gradient-radial from-[hsl(var(--accent-cyan))]/30 via-transparent to-transparent opacity-0 animate-[pulse_8s_ease-in-out_infinite]" />
         <iframe
           src="https://my.spline.design/cybermannequin-nAXOQr2eE98SpYQlI8Nejhvg/"
           className="spline-hero w-full h-full hero-visual animate-[float_6s_ease-in-out_infinite]"
@@ -91,19 +91,9 @@ export const Hero = ({ locale }: HeroProps) => {
           </div>
           
           {/* Trust Tag */}
-          <div className="hero-trust opacity-0 space-y-2">
-            <p className="text-sm text-[hsl(var(--text-muted))]">
-              {content[locale].trustTag}
-            </p>
-            <a 
-              href="https://gdprlocal.com/chatbot-gdpr-compliance/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs bg-[hsl(var(--accent-green))]/10 text-[hsl(var(--accent-green))] px-3 py-1.5 rounded-full border border-[hsl(var(--accent-green))]/30 hover:bg-[hsl(var(--accent-green))]/20 transition-colors"
-            >
-              <span className="font-semibold">✓ GDPR Ready</span>
-            </a>
-          </div>
+          <p className="hero-trust text-sm text-[hsl(var(--text-muted))] opacity-0">
+            {content[locale].trustTag}
+          </p>
         </div>
       </div>
 
